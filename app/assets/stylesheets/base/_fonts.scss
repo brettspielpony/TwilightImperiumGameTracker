@@ -1,0 +1,55 @@
+@font-face {
+  font-family: 'Slider';
+  src: asset-url('Slider.eot');
+  src: asset-url('Slider.eot') format('embedded-opentype'),
+       asset-url('Slider.woff2') format('woff2'),
+       asset-url('Slider.woff') format('woff'),
+       asset-url('Slider.ttf') format('truetype'),
+       asset-url('Slider.svg') format('svg');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@import "node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
+@import "node_modules/@fortawesome/fontawesome-free/scss/regular.scss";
+@import "node_modules/@fortawesome/fontawesome-free/scss/brands.scss";
+
+// solid
+@font-face {
+  font-family: "Font Awesome 5 Free";
+  font-style: normal;
+  font-weight: 900;
+  src: asset-url("fa-solid-900.eot");
+  src: asset-url("fa-solid-900.eot") format("embedded-opentype"),
+    asset-url("fa-solid-900.woff2") format("woff2"),
+    asset-url("fa-solid-900.woff") format("woff"),
+    asset-url("fa-solid-900.ttf") format("truetype"),
+    asset-url("fa-solid-900.svg") format("svg");
+}
+
+// regular
+@font-face {
+  font-family: "Font Awesome 5 Free";
+  font-style: normal;
+  font-weight: 400;
+  src: asset-url("fa-regular-400.eot");
+  src: asset-url("fa-regular-400.eot") format("embedded-opentype"),
+    asset-url("fa-regular-400.woff2") format("woff2"),
+    asset-url("fa-regular-400.woff") format("woff"),
+    asset-url("fa-regular-400.ttf") format("truetype"),
+    asset-url("fa-regular-400.svg") format("svg");
+}
+
+// brands
+@font-face {
+  font-family: "Font Awesome 5 Brands";
+  font-style: normal;
+  font-weight: normal;
+  src: asset-url("fa-brands-400.eot");
+  src: asset-url("fa-brands-400.eot") format("embedded-opentype"),
+    asset-url("fa-brands-400.woff2") format("woff2"),
+    asset-url("fa-brands-400.woff") format("woff"),
+    asset-url("fa-brands-400.ttf") format("truetype"),
+    asset-url("fa-brands-400.svg") format("svg");
+}

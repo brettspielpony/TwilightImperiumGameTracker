@@ -1,0 +1,45 @@
+{
+  "name": "TwilightImperiumGameTracker",
+  "version": "1.0.0",
+  "description": "Track progress of TI4 games",
+  "engines": {
+    "node": "12.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brettspielpony/TwilightImperiumGameTracker.git"
+  },
+  "author": "Brettspielpony",
+  "bugs": {
+    "url": "https://github.com/brettspielpony/TwilightImperiumGameTracker/issues"
+  },
+  "homepage": "https://github.com/brettspielpony/TwilightImperiumGameTracker",
+  "scripts": {
+    "eslint": "eslint 'app/components/**/*.js' 'app/assets/javascripts/**/*.js'",
+    "stylelint": "stylelint 'app/components/**/*.scss' 'app/assets/stylesheets/**/*.scss'",
+    "compile": "faucet --compact --fingerprint",
+    "watch": "faucet --watch --sourcemaps"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.12.1",
+    "faucet-pipeline-js": "^2.0.10",
+    "faucet-pipeline-sass": "^1.3.1",
+    "faucet-pipeline-static": "^1.1.0",
+    "faucet-pipeline-jsmin": "^2.0.10",
+    "@rails/ujs": "^6.0.0",
+    "turbolinks": "^5.2.0",
+    "uitil": "^2.5.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-semistandard": "^15.0.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "stylelint": "^13.2.0",
+    "stylelint-config-recommended-scss": "^4.2.0",
+    "stylelint-scss": "^3.14.2"
+  }
+}
