@@ -1,7 +1,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/brettspielpony/TwilightImperiumGameTracker">
-    <img src="logo.png" alt="Logo" width="800">
+    <img src="app/assets/images/logo.png" alt="Logo" width="800">
   </a>
 
   <h3 align="center">Twilight Imperium - Game Tracker</h3>
