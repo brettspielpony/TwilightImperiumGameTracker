@@ -1,0 +1,51 @@
+version: "3"
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+    user: "${USER_MAPPING:-app:app}"
+    command: bash -c "rm -rf tmp/pids/server.pid && rails server -p 3000 -b 0.0.0.0"
+    volumes:
+      - .:/opt/app:delegated
+      - bundle:/opt/bundle
+      - node_modules:/opt/app/node_modules
+    ports:
+      - "3000:3000"
+    environment:
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=secretsecretsecret
+      - DB_HOST=db
+    # Keeps the stdin open, so we can attach to our app container's process and
+    # do stuff such as `byebug` or `binding.pry`:
+    stdin_open: true
+    # Allows us to send signals (CTRL+C, CTRL+P + CTRL+Q) into the container:
+    tty: true
+
+  assets:
+    build:
+      context: .
+      dockerfile: Dockerfile-faucet
+    user: "${USER_MAPPING:-node:node}"
+    command: bash -c "npm install && npm run watch"
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/opt/app:delegated
+      - node_modules:/opt/app/node_modules
+
+  db:
+    image: postgres:11
+    volumes:
+      - tigametracker_db:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+       - POSTGRES_PASSWORD=secretsecretsecret
+
+volumes:
+  node_modules:
+  bundle:
+  tigametracker_db:

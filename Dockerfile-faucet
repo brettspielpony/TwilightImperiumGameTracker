@@ -1,0 +1,19 @@
+FROM node:12
+
+ENV APP_HOME="/opt/app/"
+
+# We are using the existing user, because otherwise we have a user with
+# ID 1000 which will destroy the user mapping from an existing user 1000...
+RUN mkdir "$APP_HOME" && \
+  chown -R node:node "$APP_HOME"
+
+# Execute all commands in the app directory with the non-root user from now on
+WORKDIR $APP_HOME
+USER node
+
+# Copy package.json and package-lock.json
+COPY --chown=node:node package.json package-lock.json ./
+
+RUN npm install
+
+CMD ["npm compile"]
