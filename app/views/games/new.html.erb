@@ -1,0 +1,12 @@
+<h1>Create a new game</h1>
+
+<%= form_with model: @game do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :map %>
+  <%= f.text_field :map %>
+  <%= f.label :victory_points %>
+  <%= f.collection_select :victory_points, [10, 14], :to_s, :to_s %>
+
+  <%= f.submit %>
+<% end %>
