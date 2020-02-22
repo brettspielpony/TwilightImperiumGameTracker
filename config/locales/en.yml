@@ -1,33 +1,143 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  factions:
+    arborec: The Arborec
+    barony: The Barony of Letnev
+    creuss: The Ghosts of Creuss
+    hacan: The Emirates of Hacan
+    jolnar: The Universities of Jol-Nar
+    l1z1x: The L1Z1X Mindnet
+    mentak: The Mentak Coalition
+    muaat: The Embers of Muaat
+    naalu: The Naalu Collective
+    nekro: The Nekro Virus
+    sardakk: The Sardakk N'orr
+    saar: The Clan of Saar
+    sol: The Federation of Sol
+    winnu: The Winnu
+    xxcha: The Xxcha Kingdom
+    yin: The Yin Brotherhood
+    yssaril: The Yssaril Tribes
+  stage1_objectives:
+    corner_the_market:
+      title: Corner the Market
+      description: Control 4 planets that each have the same planet trait
+    develop_weaponry:
+      title: Develop Weaponry
+      description: Own 2 unit upgrade technologies
+    diversify_research:
+      title: Diversify Research
+      description: Own 2 technologies in each of 2 colors
+    erect_a_monument:
+      title: Erect a Monument
+      description: Spend 8 resources
+    expand_borders:
+      title: Expand Borders
+      description: Control 6 planets in non-home systems
+    found_research_outposts:
+      title: Found Research Outposts
+      description: Control 3 planets that have technology specialties
+    intimidate_council:
+      title: Intimidate Council
+      description: Have 1 or more ships in 2 systems that are adjacent to Mecatol Rex's System
+    lead_from_the_front:
+      title: Lead From the Front
+      description: Spend a total of 3 tokens from your tactic and/or strategy pools
+    negotiate_trade_routes:
+      title: Negotiate Trade Routes
+      description: Spend 5 trade goods
+    sway_the_council:
+      title: Sway the Council
+      description: Spend 8 influence
+  stage2_objectives:
+    centralize_galactic_trade:
+      title: Centralize Galactic Trade
+      description: Spend 10 trade goods
+    conquer_the_weak:
+      title: Conquer the Weak
+      description: Control 1 planet that is in another player's home system
+    form_galactic_brain_trust:
+      title: Form Galactic Brain Trust
+      description: Control 5 planets that have technology specialties
+    found_a_golden_age:
+      title: Found a Golden Age
+      description: Spend 16 resources
+    galvanize_the_people:
+      title: Galvanize the People
+      description: Spend a total of 6 tokens from your tactic and/or strategy pools
+    manipulate_galactic_law:
+      title: Manipulate Galactic Law
+      description: Spend 16 influence
+    master_the_sciences:
+      title: Master the Sciences
+      description: Own 2 technologies in each of 4 colors
+    revolutionize_warfare:
+      title: Revolutionize Warfare
+      description: Own 3 unit upgrade technologies
+    subdue_the_galaxy:
+      title: Subdue the Galaxy
+      description: Control 11 planets in non-home systems
+    unify_the_colonies:
+      title: Unify the Colonies
+      description: Control 6 planets that each have the same planet trait
+  secret_action_objectives:
+    destroy_their_greatest_ship:
+      title: Destroy Their Greatest Ship
+      description: Destroy another player's war sun or flagship
+    make_an_example_of_their_world:
+      title: Make an Example of Their World
+      description: Use BOMBARDMENT to destroy the last of a player's ground forces on a planet
+    spark_a_rebellion:
+      title: Spark a Rebellion
+      description: Win a combat against a player who has the most victory points
+    turn_their_fleets_to_dust:
+      title: Turn Their Fleets to Dust
+      description: Use SPACE CANNON to destroy the last of a player's ships in a system
+    unveil_flagship:
+      title: Unveil Flagship
+      description: Win a space combat in a system that contains your flagship. You cannot score this objective if your flagship is destroyed in the combat
+  secret_agenda_objectives:
+    adapt_new_strategies:
+      title: Adapt New Strategies
+      description: Own 2 faction technologies. (Valefar Assimilator technologies do not count toward this objective)
+    become_the_gatekeeper:
+      title: Become the Gatekeeper
+      description: Have 1 or more ships in a system that contains an alpha wormhole and 1 or more ships in a system that contains a beta wormhole
+    control_the_region:
+      title: Control the Region
+      description: Have 1 or more ships in 6 systems
+    cut_supply_lines:
+      title: Cut Supply Lines
+      description: Have 1 or more ships in the same system as another player's space dock
+    establish_a_perimeter:
+      title: Establish a Perimeter
+      description: Have 4 PDS units on the game board
+    forge_an_alliance:
+      title: Forge an Alliance
+      description: Control 4 cultural planets
+    form_a_spy_network:
+      title: Form a Spy Network
+      description: Discard 5 action Cards
+    fuel_the_war_machine:
+      title: Fuel the War Machine
+      description: Have 3 space docks on the game board
+    gather_a_mighty_fleet:
+      title: Gather a Mighty Fleet
+      description: Have 5 dreadnoughts on the game board
+    learn_the_secrets_of_the_cosmos:
+      title: Learn the Secrets of the Cosmos
+      description: Have 1 or more ships in 3 systems that are each adjacent to an anomaly
+    master_the_laws_of_physics:
+      title: Master the Laws of Physics
+      description: Own 4 technologies of the same color
+    mine_rare_metals:
+      title: Mine Rare Metals
+      description: Control 4 hazardous planets
+    monopolize_production:
+      title: Monopolize Production
+      description: Control 4 industrial planets
+    occupy_the_seat_of_the_empire:
+      title: Occupy the Seat of the Empire
+      description: Control Mecatol Rex and have 3 or more ships in its system
+    threaten_enemies:
+      title: Threaten Enemies
+      description: Have 1 or more ships in a system that is adjacent to another player's home system
