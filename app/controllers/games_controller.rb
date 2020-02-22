@@ -1,4 +1,8 @@
 class GamesController < ApplicationController
+  def show
+    @game = Game.find_by!(uid: params[:uid])
+  end
+
   def new
     @game = Game.new
   end
@@ -7,7 +11,7 @@ class GamesController < ApplicationController
     @game = Game.new(new_game_params)
 
     if @game.save
-      redirect_to root_url
+      redirect_to game_url(@game)
     else
       render :new
     end

@@ -1,0 +1,10 @@
+<h1>Add new Player</h1>
+
+<%= form_with model: @player, url: game_players_path(@current_game) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :faction %>
+  <%= f.collection_select :faction, available_factions_for_game(@current_game), :first, :last %>
+
+  <%= f.submit %>
+<% end %>
