@@ -6,35 +6,35 @@
 
 <h2>Factions Overview</h2>
 <ul>
-<% I18n.t("factions").each do |short, name| %>
+<% t("factions").each do |short, name| %>
   <li><%= name %></li>
 <% end %>
 </ul>
 
 <h2>Stage 1 Objectives</h2>
 <ul>
-<%- I18n.t("stage1_objectives").each do |(key, objective)| %>
+<% t("stage1_objectives").each do |(key, objective)| %>
 <li><strong><%= objective[:title] %></strong>: <%= objective[:description] %></li>
 <%- end %>
 </ul>
 
 <h2>Stage 2 Objectives</h2>
 <ul>
-<% I18n.t("stage2_objectives").each do |(key, objective)| %>
+<% t("stage2_objectives").each do |(key, objective)| %>
 <li><strong><%= objective[:title] %></strong>: <%= objective[:description] %></li>
 <% end %>
 </ul>
 
 <h2>Secret Action Objectives</h2>
 <ul>
-<% I18n.t("secret_action_objectives").each do |(key, objective)| %>
+<% t("secret_action_objectives").each do |(key, objective)| %>
 <li><strong><%= objective[:title] %></strong>: <%= objective[:description] %></li>
 <% end %>
 </ul>
 
 <h2>Secret Agenda Objectives</h2>
 <ul>
-<% I18n.t("secret_agenda_objectives").each do |(key, objective)| %>
+<% t("secret_agenda_objectives").each do |(key, objective)| %>
 <li><strong><%= objective[:title] %></strong>: <%= objective[:description] %></li>
 <% end %>
 </ul>
