@@ -20,9 +20,20 @@ class GamesController < ApplicationController
   def close
     game = find_game
     game.close!
+    redirect_to root_url
+  end
+
+  def start_next_round
+    game = find_game
+    game.create_next_round(public_objectives: public_objectives_params[:public_objectives])
+    redirect_to game_path(game)
   end
 
   private
+
+  def public_objectives_params
+    params.require(:game).permit(public_objectives: [])
+  end
 
   def find_game
     Game.find_by!(uid: params[:uid])

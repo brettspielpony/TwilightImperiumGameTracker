@@ -10,16 +10,19 @@ class Game < ApplicationRecord
   has_many :rounds
   has_one :winner, class_name: "Player"
 
-  scope :active, -> { where(ended_at: nil) }
-
   before_create :set_started_at
 
   aasm do
     state :preparing, initial: true
+    state :active
     state :closed, before_enter: :set_ended_at
 
     event :close do
       transitions from: %i[preparing active], to: :closed
+    end
+
+    event :start do
+      transitions from: %i[preparing], to: :active, guard: :ready_to_start?
     end
   end
 
@@ -27,12 +30,27 @@ class Game < ApplicationRecord
     (ended_at || Time.current) - started_at
   end
 
-  def next_round_number
-    (rounds.maximum(:index) || 0 ) + 1
+  def active_public_objectives
+    @active_public_objectives ||= rounds.map { |round| round.public_objectives }.flatten
   end
 
-  def create_next_round!
-    rounds.create(index: next_round_number)
+  def current_round
+    rounds.order(index: :asc).last
+  end
+
+  def current_round_number
+    current_round&.index || 0
+  end
+
+  def next_round_number
+    current_round_number + 1
+  end
+
+  def create_next_round(public_objectives:)
+    round = rounds.build(index: next_round_number)
+    round.public_objectives = public_objectives.map { |key| Objective.find_by_key(key) }
+    round.save!
+    start! if preparing?
   end
 
   def to_param
@@ -48,6 +66,10 @@ class Game < ApplicationRecord
   end
 
   private
+
+  def ready_to_start?
+    enough_players?
+  end
 
   def set_ended_at
     self.ended_at = Time.zone.now

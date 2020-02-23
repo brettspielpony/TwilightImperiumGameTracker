@@ -1,0 +1,17 @@
+<section class="mb-l">
+  <h2>Round <%= game.current_round_number %>: <%= game.current_round.aasm_state %></h2>
+
+  <% if game.current_round.finished? %>
+    <h3>Pick the next public objective</h3>
+    <%= form_with model: @game, url: start_next_round_game_path(game), method: :post, class: "form-columns" do |f| %>
+      <div class="select">
+        <label for="public_objective">Public Objective</label>
+        <%= select_tag "game[public_objectives][]", grouped_options_for_select(available_public_objectives_for_game(@game)), id: "public_objective" %>
+      </div>
+
+      <%= f.submit "Start Next Round" %>
+    <% end %>
+  <% else %>
+    <%= render "rounds/states/#{game.current_round.aasm_state}", game: game, round: game.current_round %>
+  <% end %>
+</section>

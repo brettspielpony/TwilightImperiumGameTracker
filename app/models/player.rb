@@ -1,6 +1,9 @@
 class Player < ApplicationRecord
   include SimpleUid
 
+  validates :name, presence: true
+  validates :faction, presence: true
+
   serialize :technologies, Technology::Serialization
 
   belongs_to :game

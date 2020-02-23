@@ -1,13 +1,26 @@
 <section class="mb-l">
+  <% if !game.player_limit_reached? %>
+    <%= link_to "Add another Player", new_game_player_path(@game) %>
+  <% end %>
+
   <p>
-    <% if game.enough_players? %>
-      <%= button_to "Start Round #{game.next_round_number}", game_rounds_path(game) %>
-    <% else %>
+    <% if !game.enough_players? %>
       Please add more players.
+    <% else %>
+      <h2>Pick the first two public stage 1 objectives</h2>
+      <%= form_with model: @game, url: start_next_round_game_path(game), method: :post, class: "form-columns" do |f| %>
+        <div class="select">
+          <label for="1st_public_objective">1st Public Objective</label>
+          <%= select_tag "game[public_objectives][]", grouped_options_for_select(available_public_objectives_for_game(@game)), id: "1st_public_objective" %>
+        </div>
+
+        <div class="select">
+          <label for="2nd_public_objective">2nd Public Objective</label>
+          <%= select_tag "game[public_objectives][]", grouped_options_for_select(available_public_objectives_for_game(@game)), id: "2nd_public_objective" %>
+        </div>
+
+        <%= f.submit "Start First Round", disabled: !game.may_start? %>
+      <% end %>
     <% end %>
   </p>
-
-  <% unless game.player_limit_reached? %>
-    <%= link_to "Add Player", new_game_player_path(@game) %>
-  <% end %>
 </section>

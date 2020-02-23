@@ -1,0 +1,12 @@
+<section class="mb-l">
+  <%= form_with model: round, url: pick_strategy_cards_game_round_path(game, round), method: :post, class: "form-columns" do |f| %>
+    <% game.players.each_with_index do |player| %>
+      <div class="select">
+        <%= f.label :"strategy_card_picks[pick]", player.name %>
+        <%= f.collection_select :"strategy_card_picks[#{player.id}]", strategy_cards, :first, :last %>
+      </div>
+    <% end %>
+
+    <%= f.submit "Save Picks" %>
+  <% end %>
+</section>

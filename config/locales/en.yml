@@ -17,6 +17,39 @@ en:
     xxcha: The Xxcha Kingdom
     yin: The Yin Brotherhood
     yssaril: The Yssaril Tribes
+  strategy_cards:
+    leadership:
+      initiative_order: 1
+      title: Leadership
+      description: A player might choose this card to gain more command tokens, enabling them to perform more actions during the action phase.
+    diplomacy:
+      initiative_order: 2
+      title: Diplomacy
+      description: A player might choose this card if they feel threatened, to prevent other players from attacking a system. Or, to refresh exhausted planets, so their resources and influence may be spent again that round.
+    politics:
+      initiative_order: 3
+      title: Politics
+      description: A player might choose this card to draw action cards, increasing the variety of abilities that are available to them, as well as to control who will be the next speaker, and what agendas will come before the Galactic Council.
+    construction:
+      initiative_order: 4
+      title: Construction
+      description: A player might choose this card to produce planetary structures, such as space docks and PDS units.
+    trade:
+      initiative_order: 5
+      title: Trade
+      description: A player might choose this card to gain trade goods and commodities, which he could use to produce additional units or trade to other players.
+    warfare:
+      initiative_order: 6
+      title: Warfare
+      description: A player might choose this card to allow some of his ships to move twice, or to build a unit and move it during the same game round.
+    technology:
+      initiative_order: 7
+      title: Technology
+      description: A player might choose this card to research a new technology that would grant him a new ability or unit upgrade.
+    imperial:
+      initiative_order: 8
+      title: Imperial
+      description: A player might choose this card to score victory points early, or to draw an additional secret objective, granting them additional routes to victory.
   technologies:
     light_wave_deflector:
       title: Light/Wave Deflector

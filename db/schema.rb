@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_23_130216) do
+ActiveRecord::Schema.define(version: 2020_02_23_202105) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,15 @@ ActiveRecord::Schema.define(version: 2020_02_23_130216) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "winner_id"
+  end
+
+  create_table "player_stats", force: :cascade do |t|
+    t.string "strategy_card", null: false
+    t.bigint "player_id"
+    t.bigint "round_id"
+    t.string "scored_public_objectives", default: [], null: false, array: true
+    t.index ["player_id"], name: "index_player_stats_on_player_id"
+    t.index ["round_id"], name: "index_player_stats_on_round_id"
   end
 
   create_table "players", force: :cascade do |t|
@@ -48,6 +57,8 @@ ActiveRecord::Schema.define(version: 2020_02_23_130216) do
     t.bigint "game_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "aasm_state", default: "strategy_phase", null: false
+    t.string "public_objectives", default: [], null: false, array: true
     t.index ["game_id"], name: "index_rounds_on_game_id"
   end
 

@@ -13,10 +13,17 @@ class PlayersController < ApplicationController
     @player = Player.new(new_player_params)
 
     if @player.save
-      redirect_to game_url(@current_game)
+      redirect_to @current_game
     else
       render :new
     end
+  end
+
+  def destroy
+    player = @current_game.players.find(params[:id])
+    player.destroy!
+
+    redirect_to @current_game
   end
 
   private
