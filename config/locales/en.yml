@@ -95,7 +95,7 @@ en:
     unveil_flagship:
       title: Unveil Flagship
       description: Win a space combat in a system that contains your flagship. You cannot score this objective if your flagship is destroyed in the combat
-  secret_agenda_objectives:
+  secret_status_objectives:
     adapt_new_strategies:
       title: Adapt New Strategies
       description: Own 2 faction technologies. (Valefar Assimilator technologies do not count toward this objective)

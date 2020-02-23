@@ -1,40 +1,67 @@
-<%= image_tag "logo.png", width: "300px" %>
-
-<p>
-  Welcome, my galactical friend.
-</p>
-
-<h2>Factions Overview</h2>
-<ul>
-<% t("factions").each do |short, name| %>
-  <li><%= name %></li>
+<% content_for :header do %>
+  <%= image_tag "logo.png" %>
 <% end %>
-</ul>
 
-<h2>Stage 1 Objectives</h2>
-<ul>
-<% t("stage1_objectives").each do |(key, objective)| %>
-<li><strong><%= objective[:title] %></strong>: <%= objective[:description] %></li>
-<%- end %>
-</ul>
+<section class="section-center mb-l">
+  <h1>Welcome, my galactical friend.</h1>
 
-<h2>Stage 2 Objectives</h2>
-<ul>
-<% t("stage2_objectives").each do |(key, objective)| %>
-<li><strong><%= objective[:title] %></strong>: <%= objective[:description] %></li>
-<% end %>
-</ul>
+  <p>
+    Easily track your epic Twilight Imperium IV game sessions.
+  </p>
 
-<h2>Secret Action Objectives</h2>
-<ul>
-<% t("secret_action_objectives").each do |(key, objective)| %>
-<li><strong><%= objective[:title] %></strong>: <%= objective[:description] %></li>
-<% end %>
-</ul>
+  <%= button_to "New Game", new_game_url, method: :get %>
+  <%= button_to "Load Game", new_game_url, method: :get %>
+</section>
 
-<h2>Secret Agenda Objectives</h2>
-<ul>
-<% t("secret_agenda_objectives").each do |(key, objective)| %>
-<li><strong><%= objective[:title] %></strong>: <%= objective[:description] %></li>
-<% end %>
-</ul>
+<hr>
+
+<section>
+
+  <h2>Faction and Objectives Overview</h2>
+
+  <details>
+    <summary>Factions Overview</summary>
+    <ul>
+      <% t("factions").each do |_short, name| %>
+        <li><%= name %></li>
+      <% end %>
+    </ul>
+  </details>
+
+  <details>
+    <summary>Stage I Objectives</summary>
+    <ul>
+      <% t("stage1_objectives").each do |_key, objective| %>
+        <li><strong><%= objective[:title] %></strong>: <%= objective[:description] %></li>
+      <%- end %>
+    </ul>
+  </details>
+
+  <details>
+    <summary>Stage II Objectives</summary>
+    <ul>
+      <% t("stage2_objectives").each do |_key, objective| %>
+        <li><strong><%= objective[:title] %></strong>: <%= objective[:description] %></li>
+      <%- end %>
+    </ul>
+  </details>
+
+  <details>
+    <summary>Secret Objectives - Action Phase</summary>
+    <ul>
+      <% t("secret_action_objectives").each do |_key, objective| %>
+        <li><strong><%= objective[:title] %></strong>: <%= objective[:description] %></li>
+      <%- end %>
+    </ul>
+  </details>
+
+  <details>
+    <summary>Secret Objectives - Status Phase</summary>
+    <ul>
+      <% t("secret_status_objectives").each do |_key, objective| %>
+        <li><strong><%= objective[:title] %></strong>: <%= objective[:description] %></li>
+      <%- end %>
+    </ul>
+  </details>
+
+</section>
