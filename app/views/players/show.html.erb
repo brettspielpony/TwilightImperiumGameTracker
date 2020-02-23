@@ -1,0 +1,14 @@
+<h1><%= t("factions.#{@player.faction}") %></h1>
+<p>Played by <%= @player.name %></p>
+
+<section>
+  <h2>Technologies</h2>
+  <ul>
+    <% @player.technologies.each do |technology| %>
+      </li><%= technology %></li>
+    <% end %>
+  </ul>
+
+  <% form_for url: player_technologies_path(@player) do %>
+  <% end %>
+</section>

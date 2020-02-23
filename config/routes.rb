@@ -4,5 +4,10 @@ Rails.application.routes.draw do
 
   resources :games, only: %i(show new create update), param: :uid do
     resources :players, only: %i(show new create update)
+    resources :rounds, only: %i(create)
+  end
+
+  resources :players, only: [], param: :uid do
+    resources :technologies, only: %i(create destroy)
   end
 end

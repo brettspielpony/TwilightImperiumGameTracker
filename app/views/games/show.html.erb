@@ -10,7 +10,7 @@
 
 <p>
   <% if @game.enough_players? %>
-    <%= link_to "Start Round 1", "#" %>
+    <%= button_to "Start Round #{@game.next_round_number}", game_rounds_path(@game) %>
   <% else %>
     Please add more players.
   <% end %>

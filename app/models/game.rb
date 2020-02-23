@@ -6,8 +6,17 @@ class Game < ApplicationRecord
   serialize :map
 
   has_many :players
+  has_many :rounds
 
   before_create :set_started_at
+
+  def next_round_number
+    (rounds.maximum(:index) || 0 ) + 1
+  end
+
+  def create_next_round!
+    rounds.create(index: next_round_number)
+  end
 
   def to_param
     uid
