@@ -3,11 +3,15 @@ Rails.application.routes.draw do
   root to: "welcome#show"
 
   resources :games, only: %i(show new create update), param: :uid do
-    resources :players, only: %i(show new create update)
+    member do
+      post :close
+    end
+
+    resources :players, only: %i(show new create update) do
+      resources :technologies, only: %i(create destroy), param: :key
+    end
     resources :rounds, only: %i(create)
   end
 
-  resources :players, only: [], param: :uid do
-    resources :technologies, only: %i(create destroy)
-  end
+  resources :technologies, only: %i(show), param: :key
 end

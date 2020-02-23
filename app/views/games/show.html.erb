@@ -1,21 +1,20 @@
 <h1><%= @game.name %></h1>
 
-<h2>Players</h2>
-<ul>
-<% @game.players.each do |player| %>
-  <li><%= link_to player.name, game_player_path(@game, player) %> (<%= t("factions.#{player.faction}") %>)</li>
-<% end %>
-</ul>
-
-
-<p>
-  <% if @game.enough_players? %>
-    <%= button_to "Start Round #{@game.next_round_number}", game_rounds_path(@game) %>
-  <% else %>
-    Please add more players.
+<section>
+  <h2>Players</h2>
+  <% if @game.players.any? %>
+    <ul>
+    <% @game.players.each do |player| %>
+      <li><%= link_to player.name, game_player_path(@game, player) %> (<%= t("factions.#{player.faction}") %>)</li>
+    <% end %>
+    </ul>
   <% end %>
-</p>
+</section>
 
-<% unless @game.player_limit_reached? %>
-  <%= link_to "Add Player", new_game_player_path(@game) %>
-<% end %>
+<%= render "games/states/#{@game.aasm_state}", game: @game %>
+
+<section>
+  <% if @game.may_close? %>
+    <%= button_to "Close Game", close_game_path(@game), data: { confirm: "Sure?" } %>
+  <% end %>
+</section

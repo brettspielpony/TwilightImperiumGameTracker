@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -12,6 +13,14 @@
   <body>
     <header>
       <%= yield :header %>
+      <% if controller_name != "welcome" %>
+        <%= link_to "Home", root_path %>
+      <% end %>
+
+      <% if @current_game %>
+        <span>/</span>
+        <%= link_to @current_game.name, @current_game %>
+      <% end %>
     </header>
 
     <main>

@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
   def show
-    @game = Game.find_by!(uid: params[:uid])
+    @game = find_game
   end
 
   def new
@@ -17,7 +17,16 @@ class GamesController < ApplicationController
     end
   end
 
+  def close
+    game = find_game
+    game.close!
+  end
+
   private
+
+  def find_game
+    Game.find_by!(uid: params[:uid])
+  end
 
   def new_game_params
     params.require(:game).permit(:name, :map, :victory_points)

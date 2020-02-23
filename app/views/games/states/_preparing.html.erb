@@ -1,0 +1,13 @@
+<section class="mb-l">
+  <p>
+    <% if game.enough_players? %>
+      <%= button_to "Start Round #{game.next_round_number}", game_rounds_path(game) %>
+    <% else %>
+      Please add more players.
+    <% end %>
+  </p>
+
+  <% unless game.player_limit_reached? %>
+    <%= link_to "Add Player", new_game_player_path(@game) %>
+  <% end %>
+</section>

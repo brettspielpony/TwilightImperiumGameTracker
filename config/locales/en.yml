@@ -17,6 +17,203 @@ en:
     xxcha: The Xxcha Kingdom
     yin: The Yin Brotherhood
     yssaril: The Yssaril Tribes
+  technologies:
+    light_wave_deflector:
+      title: Light/Wave Deflector
+      color: B
+      requires: B/B/B
+    fleet_logistics:
+      title: Fleet Logistics
+      color: B
+      requires: B/B
+    gravity_drive:
+      title: Gravity Drive
+      color: B
+      requires: B
+    antimass_deflectors:
+      title: Antimass Deflectors
+      color: B
+      requires:
+    integrated_economy:
+      title: Integrated Economy
+      color: Y
+      requires: Y/Y/Y
+    transit_diodes:
+      title: Transit Diodes
+      color: Y
+      requires: Y/Y
+    graviton_laser_system:
+      title: Graviton Laser System
+      color: Y
+      requires: Y
+    sarween_tools:
+      title: Sarween Tools
+      color: Y
+      requires:
+    assault_cannon:
+      title: Assault Cannon
+      color: R
+      requires: R/R/R
+    duranium_armor:
+      title: Duranium Armor
+      color: R
+      requires: R/R
+    magen_defense_grid:
+      title: Magen Defense Grid
+      color: R
+      requires: R
+    plasma_scoring:
+      title: Plasma Scoring
+      color: R
+      requires:
+    x_89_bacterial_weapon:
+      title: X-89 Bacterial weapon
+      color: G
+      requires: G/G/G
+    hyper_metabolism:
+      title: Hyper Metabolism
+      color: G
+      requires: G/G
+    dacxive_animators:
+      title: Dacxive Animators
+      color: G
+      requires: G
+    neural_motivator:
+      title: Neural Motivator
+      color: G
+      requires:
+    mirror_computing:
+      title: Mirror Computing
+      color: Y
+      requires: Y/Y/Y
+    salvage_operations:
+      title: Salvage Operations
+      color: Y
+      requires: Y/Y
+    mageon_implants:
+      title: Mageon Implants
+      color: G
+      requires: G/G/G
+    transparasteel_plating:
+      title: Transparasteel Plating
+      color: G
+      requires: G
+    quantum_datahub_node:
+      title: Quantum Datahub Node
+      color: Y
+      requires: Y/Y/Y
+    production_biomes:
+      title: Production Biomes
+      color: G
+      requires: G/G
+    yin_spinner:
+      title: Yin Spinner
+      color: G
+      requires: G/G
+    impulse_core:
+      title: Impulse Core
+      color: Y
+      requires: Y/Y
+    lazax_gate_folding:
+      title: Lazax Gate Folding
+      color: B
+      requires: B/B
+    hegemonic_trade_policy:
+      title: Hegemonic Trade Policy
+      color: Y
+      requires: Y/Y
+    valefar_assimilator_y_and_x:
+      title: Valefar Assimilator Y and X
+      color:
+      requires:
+    l4_disruptors:
+      title: L4 Disruptors
+      color: Y
+      requires: Y
+    non_euclidean_shielding:
+      title: Non-Euclidean Shielding
+      color: R
+      requires: R/R
+    spacial_conduit_cylinder:
+      title: Spacial Conduit Cylinder
+      color: B
+      requires: B/B
+    e_res_siphons:
+      title: E-Res Siphons
+      color: Y
+      requires: Y/Y
+    spec_ops_2:
+      title: Spec Ops 2
+      color: G
+      requires: G/G
+    advanced_carrier_2:
+      title: Advanced Carrier 2
+      color: B
+      requires: B/B
+    hybrid_crystal_fighter_2:
+      title: Hybrid Crystal Fighter 2
+      color:
+      requires: G/B
+    neuroglaive:
+      title: Neuroglaive
+      color: G
+      requires: G/G/G
+    super_dreadnuaght_2:
+      title: Super Dreadnuaght 2
+      color:
+      requires: B/B/Y
+    inheritance_systems:
+      title: Inheritance Systems
+      color: Y
+      requires: Y/Y
+    letani_warrior_2:
+      title: Letani Warrior 2
+      color: G
+      requires: G/G
+    bioplasmosis:
+      title: Bioplasmosis
+      color: G
+      requires: G/G
+    exotrireme_2:
+      title: Exotrireme 2
+      color:
+      requires: B/B/Y
+    valkyrie_particle_weave:
+      title: Valkyrie Particle Weave
+      color: G
+      requires: R/R
+    prototype_war_sun_2:
+      title: Prototype War Sun 2
+      color:
+      requires: Y/R/R/R
+    magmus_reactor:
+      title: Magmus Reactor
+      color: R
+      requires: R/R
+    chaos_mapping:
+      title: Chaos Mapping
+      color: B
+      requires: B
+    floating_factory:
+      title: Floating Factory
+      color: Y
+      requires: Y/Y
+    wormhole_generator:
+      title: Wormhole Generator
+      color: B
+      requires: B/B
+    dimensional_splicer:
+      title: Dimensional Splicer
+      color:
+      requires: R
+    instinct_training:
+      title: Instinct Training
+      color: G
+      requires: G
+    nullification_field:
+      title: Nullification Field
+      color: Y
+      requires: Y/Y
   stage1_objectives:
     corner_the_market:
       title: Corner the Market

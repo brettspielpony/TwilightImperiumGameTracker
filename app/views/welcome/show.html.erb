@@ -13,10 +13,33 @@
   <%= button_to "Load Game", new_game_url, method: :get %>
 </section>
 
+<% if Rails.env.development? %>
+  <% if Game.active.any? %>
+    <section>
+      <h2>Active Games</h2>
+      <ul>
+        <% Game.active.find_each do |game| %>
+          <li><%= link_to game.name, game %></li>
+        <% end %>
+      </ul>
+    </section
+  <% end %>
+
+  <% if Game.closed.any? %>
+    <section>
+      <h2>Closed Games</h2>
+      <ul>
+        <% Game.closed.find_each do |game| %>
+          <li><%= link_to game.name, game %>, endet <%= l(game.ended_at, format: :short) %></li>
+        <% end %>
+      </ul>
+    </section
+  <% end %>
+<% end %>
+
 <hr>
 
 <section>
-
   <h2>Faction and Objectives Overview</h2>
 
   <details>
@@ -33,7 +56,7 @@
     <ul>
       <% t("stage1_objectives").each do |_key, objective| %>
         <li><strong><%= objective[:title] %></strong>: <%= objective[:description] %></li>
-      <%- end %>
+      <% end %>
     </ul>
   </details>
 
@@ -42,7 +65,7 @@
     <ul>
       <% t("stage2_objectives").each do |_key, objective| %>
         <li><strong><%= objective[:title] %></strong>: <%= objective[:description] %></li>
-      <%- end %>
+      <% end %>
     </ul>
   </details>
 
@@ -60,7 +83,16 @@
     <ul>
       <% t("secret_status_objectives").each do |_key, objective| %>
         <li><strong><%= objective[:title] %></strong>: <%= objective[:description] %></li>
-      <%- end %>
+      <% end %>
+    </ul>
+  </details>
+
+  <details>
+    <summary>Technologies</summary>
+    <ul>
+      <% t("technologies").each do |_key, technology| %>
+        <li><strong>[<%= technology[:color] || "N/A" %>] <%= technology[:title] %></strong>: <%= technology[:requires] %></li>
+      <% end %>
     </ul>
   </details>
 

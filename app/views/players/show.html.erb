@@ -1,14 +1,25 @@
 <h1><%= t("factions.#{@player.faction}") %></h1>
 <p>Played by <%= @player.name %></p>
 
-<section>
+<section class="mb-l">
   <h2>Technologies</h2>
-  <ul>
-    <% @player.technologies.each do |technology| %>
-      </li><%= technology %></li>
-    <% end %>
-  </ul>
+  <% if @player.technologies.any? %>
+    <ul>
+      <% @player.technologies.each do |technology| %>
+        <li><%= link_to technology.title, technology_path(technology.key) %> <%= link_to "x", game_player_technology_path(@current_game, @player, technology.key), method: :delete %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    No technologies yet. Add starting Technologies.
+  <% end %>
 
-  <% form_for url: player_technologies_path(@player) do %>
+  <h3>Add Tech</h3>
+  <%= form_with scope: :technology, url: game_player_technologies_path(@current_game, @player), class: "form-columns" do |f| %>
+    <div class="select">
+      <%= f.label :key, "Which tech?" %>
+      <%= f.collection_select :key, available_tech_for_player(@player), :first, :last %>
+    </div>
+
+    <%= f.submit "Add" %>
   <% end %>
 </section>
