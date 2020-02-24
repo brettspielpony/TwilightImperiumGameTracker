@@ -2,6 +2,9 @@
 
 @import "node_modules/water.css/dist/dark.standalone";
 
+// CONFIG
+$breakpoint-phone: 640px;
+
 html, body {
   height: 100%;
 }
@@ -43,9 +46,20 @@ body {
   .select {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
+
+    @media only screen and (min-width: #{$breakpoint-phone}) {
+      flex-wrap: nowrap;
+    }
 
     label {
+      font-weight: bold;
       margin-right: 1rem;
+      margin-bottom: .5rem;
+
+      @media only screen and (min-width: #{$breakpoint-phone}) {
+        margin-bottom: 0;
+      }
     }
 
     select {
@@ -55,6 +69,12 @@ body {
 
   input[type='submit'] {
     margin-top: 2rem;
+  }
+
+  &.form-slim {
+    input[type='submit'] {
+      margin-top: 0;
+    }
   }
 }
 

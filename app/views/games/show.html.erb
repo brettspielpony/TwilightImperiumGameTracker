@@ -1,35 +1,40 @@
 <h1><%= @game.name %></h1>
 
 <section>
-  <h2>Players</h2>
-  <% if @game.players.any? %>
-    <ul>
-    <% @game.players.each do |player| %>
-      <li>
-        <%= link_to player.name, game_player_path(@game, player) %> (<%= t("factions.#{player.faction}") %>)
-        <% if @game.preparing? %>
-          [<%= link_to "remove", game_player_path(@game, player), method: :delete, data: { confirm: "Sure?" } %>]
-        <% end %>
-        <% if @game.active? && @game.current_round.action_phase? %>
-          <strong><%= @game.current_round.player_stats.find_by(player: player).strategy_card %></strong>
-        <% end %>
-      </li>
+  <details <%= @game.preparing? ? "open" : "" %>>
+    <summary>Players</summary>
+
+    <% if @game.players.any? %>
+      <% @game.players.each do |player| %>
+        <div>
+          <%= link_to player.name, game_player_path(@game, player) %> (<%= t("factions.#{player.faction}") %>)
+          <% if @game.preparing? %>
+            [<%= link_to "remove", game_player_path(@game, player), method: :delete, data: { confirm: "Sure?" } %>]
+          <% end %>
+          <% if @game.active? && @game.current_round.action_phase? %>
+            <strong><%= @game.current_round.player_stats.find_by(player: player).strategy_card %></strong>
+          <% end %>
+          <% if @game.custodian_taken? && @game.custodian_owner == player %>
+            [Custodian]
+          <% end %>
+        </div>
+      <% end %>
     <% end %>
-    </ul>
-  <% end %>
+  </details>
 
   <% if @game.active? %>
-    <h2>Player Scores</h2>
+    <details>
+      <summary>Scores</summary>
 
-    <%= form_with scope: @game, method: :patch, class: "form-columns" do |f| %>
-      <% @game.players.each do |player| %>
-        <label>
-          <%= player.name %>
-          <input class="player-score-slider" name="game[player_scores[<%= player.id %>]]" value="<%= @game.player_score(player) %>" type="range" min="1" max="10" step="1">
-        </label>
+      <%= form_with scope: @game, method: :patch, class: "form-columns" do |f| %>
+        <% @game.players.each do |player| %>
+          <player-score-display player-name="<%= player.name %>">
+            <input class="player-score-slider" name="game[player_scores[<%= player.id %>]]" value="<%= @game.player_score(player) %>" type="range" min="0" max="10" step="1">
+          </player-score-display>
+        <% end %>
+        <%= f.submit "Save Score" %>
       <% end %>
-      <%= f.submit "Save Score" %>
-    <% end %>
+    </details>
   <% end %>
 
   <% if @game.revealed_objectives.any? %>

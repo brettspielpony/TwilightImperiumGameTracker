@@ -3,28 +3,26 @@
     <%= link_to "Add another Player", new_game_player_path(@game) %>
   <% end %>
 
-  <p>
-    <% if !game.enough_players? %>
-      Please add more players.
-    <% else %>
-      <h2>Reveal first two stage 1 objectives</h2>
-      <%= form_with model: @game, url: start_next_round_game_path(game), method: :post, class: "form-columns" do |f| %>
-        <div class="select">
-          <label for="1st_public_objective">1st Public Objective</label>
-          <%= f.text_field :public_objectives, name: "game[public_objectives][]", list: "stage_one_objectives", autocomplete: "off" %>
-        </div>
+  <% if !game.enough_players? %>
+    <p>Please add more players.</p>
+  <% else %>
+    <h2>Reveal first two stage 1 objectives</h2>
+    <%= form_with model: game, url: start_next_round_game_path(game), method: :post, class: "form-columns" do |f| %>
+      <div class="select">
+        <label for="1st_public_objective">1st Public Objective</label>
+        <%= f.text_field :public_objectives, name: "game[public_objectives][]", list: "stage_one_objectives", autocomplete: "off" %>
+      </div>
 
-        <div class="select">
-          <label for="2nd_public_objective">2nd Public Objective</label>
-          <%= f.text_field :public_objectives, name: "game[public_objectives][]", list: "stage_one_objectives", autocomplete: "off" %>
-        </div>
+      <div class="select">
+        <label for="2nd_public_objective">2nd Public Objective</label>
+        <%= f.text_field :public_objectives, name: "game[public_objectives][]", list: "stage_one_objectives", autocomplete: "off" %>
+      </div>
 
-        <datalist id="stage_one_objectives">
-          <%= options_from_collection_for_select PublicObjective.stage_one, :key, :title %>
-        </datalist>
+      <datalist id="stage_one_objectives">
+        <%= options_from_collection_for_select PublicObjective.stage_one, :key, :title %>
+      </datalist>
 
-        <%= f.submit "Start First Round", disabled: !game.may_start? %>
-      <% end %>
+      <%= f.submit "Start First Round", disabled: !game.may_start? %>
     <% end %>
-  </p>
+  <% end %>
 </section>

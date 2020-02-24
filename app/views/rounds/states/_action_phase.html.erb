@@ -1,4 +1,13 @@
+<section class="mb-s">
+  <% unless @game.custodian_taken? %>
+    <h3>Score Custodian for Player</h3>
+    <%= form_with scope: @game, method: :patch, class: "form-columns form-slim" do |f| %>
+      <%= f.select :custodian_owner_id, @game.players.map { |p| [p.name, p.id] } %>
+      <%= f.submit "Save" %>
+    <% end %>
+  <% end %>
+</section>
+
 <section class="mb-l">
-  <p>Now do your magic!</p>
   <%= button_to "Finish Action Phase", finish_action_phase_game_round_path(game, round) %>
 </section>

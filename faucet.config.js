@@ -3,6 +3,11 @@ let jsConfig = [
     source: "./app/assets/javascripts/application.js",
     target: "./public/assets/javascripts/application.js",
     compact: "minify",
+  },
+  {
+    source: "./app/assets/javascripts/components.js",
+    target: "./public/assets/javascripts/components.js",
+    compact: "minify",
   }
 ];
 

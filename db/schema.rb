@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2020_02_24_172831) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "winner_id"
     t.jsonb "player_scores", default: {}
+    t.integer "custodian_owner_id"
   end
 
   create_table "player_stats", force: :cascade do |t|

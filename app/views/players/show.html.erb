@@ -1,7 +1,7 @@
-<h1><%= t("factions.#{@player.faction}") %></h1>
+<h2><%= t("factions.#{@player.faction}") %></h2>
 <p>Played by <%= @player.name %></p>
 
-<% if @current_game.active? %>
+<% if @current_game.active? && @current_game.current_round.action_phase? %>
   <section class="mb-s">
     <h2>Score Objectives</h2>
     <ul>
@@ -15,16 +15,17 @@
         <% end %>
       </li>
     <% end %>
-    </ul>
   </section>
 <% end %>
 
 <section class="mb-l">
-  <h2>Technologies</h2>
+  <h3>Technologies</h3>
   <% if @player.technologies.any? %>
     <ul>
       <% @player.technologies.each do |technology| %>
-        <li><%= link_to technology.title, technology_path(technology) %> <%= link_to "x", game_player_technology_path(@current_game, @player, technology.key), method: :delete %></li>
+        <li>
+          <%= link_to technology.title, technology_path(technology) %>
+          [<%= link_to "remove", game_player_technology_path(@current_game, @player, technology.key), method: :delete %>]</li>
       <% end %>
     </ul>
   <% else %>

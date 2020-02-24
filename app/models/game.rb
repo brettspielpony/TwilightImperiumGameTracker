@@ -23,7 +23,8 @@ class Game < ApplicationRecord
 
   has_many :players
   has_many :rounds
-  has_one :winner, class_name: "Player"
+  belongs_to :winner, class_name: "Player", optional: true
+  belongs_to :custodian_owner, class_name: "Player", optional: true
 
   before_create :set_started_at
 
@@ -51,6 +52,10 @@ class Game < ApplicationRecord
 
   def revealed_objectives
     @revealed_objectives ||= rounds.flat_map(&:revealed_objectives)
+  end
+
+  def custodian_taken?
+    custodian_owner.present?
   end
 
   def current_round
