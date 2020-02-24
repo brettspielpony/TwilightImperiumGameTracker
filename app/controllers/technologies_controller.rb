@@ -14,7 +14,6 @@ class TechnologiesController < ApplicationController
   def destroy
     current_game = load_current_game
     player = current_game.players.find(params[:player_id])
-    player.remove_technology(params[:key])
     player.technologies.reject! { |tech| tech.key == params[:key] }
     player.save
 
