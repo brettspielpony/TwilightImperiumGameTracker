@@ -1,4 +1,7 @@
 en:
+  stages:
+    one: Stage 1
+    two: Stage 2
   factions:
     arborec: The Arborec
     barony: The Barony of Letnev

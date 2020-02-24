@@ -9,14 +9,10 @@ module ApplicationHelper
   end
 
   def strategy_cards
-    I18n.t("strategy_cards").to_a.map { |(key, details)| [key, details[:title]] }
+    I18n.t("strategy_cards").to_a.map { |(key, details)| [key, "&#1010#{details[:initiative_order].to_i + 1}; #{details[:title]}".html_safe] }.sort_by(&:last)
   end
 
-  def available_public_objectives_for_game(game)
-    selected_objectives = game.active_public_objectives
-    objectives = Objective.all.reject { |objective| selected_objectives.any? { |selected_objective| selected_objective.key == objective.key } }
-    ["Stage 1", "Stage 2"].map do |stage|
-      [stage, objectives.select { |obj| obj.stage == stage }.map { |obj| [obj.title, obj.key] }]
-    end
+  def available_objectives_for_game(game)
+    (PublicObjective.all - game.revealed_objectives)
   end
 end

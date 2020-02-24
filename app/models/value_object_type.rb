@@ -5,6 +5,8 @@ class ValueObjectType < ActiveRecord::Type::Json
     case value
     when Array
       value.map do |data|
+        next data unless data.is_a?(Hash)
+
         klass = data['class'].constantize
         klass.find_by_key(data['key'])
       end

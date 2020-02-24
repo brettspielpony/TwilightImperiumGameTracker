@@ -49,8 +49,8 @@ class Game < ApplicationRecord
     player_scores.fetch(player.id, 0)
   end
 
-  def active_public_objectives
-    @active_public_objectives ||= rounds.map { |round| round.public_objectives }.flatten
+  def revealed_objectives
+    @revealed_objectives ||= rounds.flat_map(&:revealed_objectives)
   end
 
   def current_round
@@ -65,10 +65,11 @@ class Game < ApplicationRecord
     current_round_number + 1
   end
 
-  def create_next_round(public_objectives:)
+  def create_next_round(revealed_objectives:)
     round = rounds.build(index: next_round_number)
-    round.public_objectives = public_objectives.map { |key| Objective.find_by_key(key) }
+    round.revealed_objectives = revealed_objectives
     round.save!
+
     start! if preparing?
   end
 

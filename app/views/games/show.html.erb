@@ -32,16 +32,12 @@
     <% end %>
   <% end %>
 
-  <% if @game.active_public_objectives.any? %>
-    <h2>Public Objectives</h2>
+  <% if @game.revealed_objectives.any? %>
+    <h2>Revealed Objectives</h2>
     <ul>
-    <% @game.active_public_objectives.group_by(&:stage).each do |(stage, objectives)| %>
-      <li><strong><%= stage %></strong>
-       <ul>
-         <% objectives.each do |objective| %>
-          <li><%= objective.title %></li>
-         <% end %>
-      </ul>
+    <% @game.revealed_objectives.each do |objective| %>
+      <li>
+        <strong><%= objective.title %> (<%= t("stages.#{objective.stage}") %>)</strong>
       </li>
     <% end %>
     </ul>

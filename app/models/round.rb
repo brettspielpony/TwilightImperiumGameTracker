@@ -3,8 +3,9 @@ class Round < ApplicationRecord
 
   belongs_to :game
   has_many :player_stats
+  has_many :player, through: :player_stats
 
-  serialize :public_objectives, Objective::Serialization
+  attribute :revealed_objectives, :value_object, default: []
 
   before_create :set_started_at
 

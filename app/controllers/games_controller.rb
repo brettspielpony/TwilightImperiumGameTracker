@@ -33,7 +33,8 @@ class GamesController < ApplicationController
 
   def start_next_round
     game = find_game
-    game.create_next_round(public_objectives: public_objectives_params[:public_objectives])
+    objectives_for_round = public_objectives_params[:public_objectives].map { |key| PublicObjective.find_by_key(key) }
+    game.create_next_round(revealed_objectives: objectives_for_round)
 
     redirect_to game
   end
