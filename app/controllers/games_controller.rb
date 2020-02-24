@@ -19,7 +19,7 @@ class GamesController < ApplicationController
 
   def update
     game = find_game
-    game.update(player_scores_params)
+    game.update(update_game_params)
 
     redirect_to game
   end
@@ -40,8 +40,8 @@ class GamesController < ApplicationController
 
   private
 
-  def player_scores_params
-    params.require(:game).permit(player_scores: {})
+  def update_game_params
+    params.require(:game).permit([{player_scores: {}}, :custodian_owner_id])
   end
 
   def public_objectives_params
