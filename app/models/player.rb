@@ -4,7 +4,7 @@ class Player < ApplicationRecord
   validates :name, presence: true
   validates :faction, presence: true
 
-  serialize :technologies, Technology::Serialization
+  attribute :technologies, :value_object, default: []
 
   belongs_to :game
 

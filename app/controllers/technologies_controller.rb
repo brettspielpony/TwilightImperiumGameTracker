@@ -6,7 +6,8 @@ class TechnologiesController < ApplicationController
   def create
     current_game = load_current_game
     player = current_game.players.find(params[:player_id])
-    player.add_technology(params.require(:technology).required(:key))
+    player.technologies << Technology.find_by_key(params.require(:technology).required(:key))
+    player.save
     redirect_to game_player_path(current_game, player)
   end
 
@@ -14,6 +15,9 @@ class TechnologiesController < ApplicationController
     current_game = load_current_game
     player = current_game.players.find(params[:player_id])
     player.remove_technology(params[:key])
+    player.technologies.reject! { |tech| tech.key == params[:key] }
+    player.save
+
     redirect_to game_player_path(current_game, player)
   end
 
