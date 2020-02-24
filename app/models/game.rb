@@ -1,10 +1,25 @@
 class Game < ApplicationRecord
   PLAYERS_COUNT_RANGE = 3..6
 
+  class PlayerScores
+    def self.load(hash)
+      transform_key_and_values_to_integer(hash || {})
+    end
+
+    def self.dump(hash)
+      hash.to_hash
+    end
+
+    def self.transform_key_and_values_to_integer(hash)
+      hash.each_with_object({}) { |(k, v), h| h[k.to_i] = v.to_i }
+    end
+  end
+
   include SimpleUid
   include AASM
 
   serialize :map
+  serialize :player_scores, PlayerScores
 
   has_many :players
   has_many :rounds
@@ -28,6 +43,10 @@ class Game < ApplicationRecord
 
   def playtime
     (ended_at || Time.current) - started_at
+  end
+
+  def player_score(player)
+    player_scores.fetch(player.id, 0)
   end
 
   def active_public_objectives

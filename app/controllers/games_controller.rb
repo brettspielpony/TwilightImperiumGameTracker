@@ -17,19 +17,32 @@ class GamesController < ApplicationController
     end
   end
 
+  def update
+    game = find_game
+    game.update(player_scores_params)
+
+    redirect_to game
+  end
+
   def close
     game = find_game
     game.close!
+
     redirect_to root_url
   end
 
   def start_next_round
     game = find_game
     game.create_next_round(public_objectives: public_objectives_params[:public_objectives])
-    redirect_to game_path(game)
+
+    redirect_to game
   end
 
   private
+
+  def player_scores_params
+    params.require(:game).permit(player_scores: {})
+  end
 
   def public_objectives_params
     params.require(:game).permit(public_objectives: [])
