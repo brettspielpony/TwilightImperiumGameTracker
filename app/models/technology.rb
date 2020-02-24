@@ -19,6 +19,14 @@ class Technology
     end
   end
 
+  def id
+    key
+  end
+
+  def persisted?
+    true
+  end
+
   class Serialization
     class << self
       def load(technologies)
