@@ -23,10 +23,9 @@
 
     <%= form_with scope: @game, method: :patch, class: "form-columns" do |f| %>
       <% @game.players.each do |player| %>
-        <label>
-          <%= player.name %>
-          <input class="player-score-slider" name="game[player_scores[<%= player.id %>]]" value="<%= @game.player_score(player) %>" type="range" min="1" max="10" step="1">
-        </label>
+        <player-score-display player-name="<%= player.name %>">
+          <input class="player-score-slider" name="game[player_scores[<%= player.id %>]]" value="<%= @game.player_score(player) %>" type="range" min="0" max="10" step="1">
+        </player-score-display>
       <% end %>
       <%= f.submit "Save Score" %>
     <% end %>
