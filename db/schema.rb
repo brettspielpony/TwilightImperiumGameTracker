@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_23_202105) do
+ActiveRecord::Schema.define(version: 2020_02_24_152853) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,10 +43,10 @@ ActiveRecord::Schema.define(version: 2020_02_23_202105) do
     t.string "faction", null: false
     t.string "scored_public_objectives", default: [], array: true
     t.string "scored_secret_objectives", default: [], array: true
-    t.string "technologies", default: [], array: true
     t.bigint "game_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.jsonb "technologies"
     t.index ["game_id"], name: "index_players_on_game_id"
   end
 
