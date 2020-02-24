@@ -58,6 +58,10 @@ body {
   }
 }
 
+input[type=range].player-score-slider {
+  width: 100%;
+}
+
 .mb-s {
   margin-bottom: 1rem;
 }

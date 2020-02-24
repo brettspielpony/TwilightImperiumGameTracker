@@ -18,6 +18,20 @@
     </ul>
   <% end %>
 
+  <% if @game.active? %>
+    <h2>Player Scores</h2>
+
+    <%= form_with scope: @game, method: :patch, class: "form-columns" do |f| %>
+      <% @game.players.each do |player| %>
+        <label>
+          <%= player.name %>
+          <input class="player-score-slider" name="game[player_scores[<%= player.id %>]]" value="<%= @game.player_score(player) %>" type="range" min="1" max="10" step="1">
+        </label>
+      <% end %>
+      <%= f.submit "Save Score" %>
+    <% end %>
+  <% end %>
+
   <% if @game.active_public_objectives.any? %>
     <h2>Public Objectives</h2>
     <ul>
