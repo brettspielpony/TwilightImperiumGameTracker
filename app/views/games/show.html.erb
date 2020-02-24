@@ -1,7 +1,7 @@
 <h1><%= @game.name %></h1>
 
 <section>
-  <details>
+  <details <%= @game.preparing? ? "open" : "" %>>
     <summary>Players</summary>
 
     <% if @game.players.any? %>
