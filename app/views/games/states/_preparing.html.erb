@@ -22,7 +22,7 @@
         <%= options_from_collection_for_select PublicObjective.stage_one, :key, :title %>
       </datalist>
 
-      <%= f.submit "Start First Round", disabled: !game.may_start? %>
+      <%= f.submit "Start Game!", disabled: !game.may_start? %>
     <% end %>
   <% end %>
 </section>
