@@ -54,8 +54,8 @@
   <details>
     <summary>Stage I Objectives</summary>
     <ul>
-      <% t("stage1_objectives").each do |_key, objective| %>
-        <li><strong><%= objective[:title] %></strong>: <%= objective[:description] %></li>
+      <% PublicObjective.stage_one.each do |objective| %>
+        <li><strong><%= objective.title %></strong>: <%= objective.description %></li>
       <% end %>
     </ul>
   </details>
@@ -63,8 +63,8 @@
   <details>
     <summary>Stage II Objectives</summary>
     <ul>
-      <% t("stage2_objectives").each do |_key, objective| %>
-        <li><strong><%= objective[:title] %></strong>: <%= objective[:description] %></li>
+      <% PublicObjective.stage_two.each do |objective| %>
+        <li><strong><%= objective.title %></strong>: <%= objective.description %></li>
       <% end %>
     </ul>
   </details>
@@ -72,17 +72,17 @@
   <details>
     <summary>Secret Objectives - Action Phase</summary>
     <ul>
-      <% t("secret_action_objectives").each do |_key, objective| %>
-        <li><strong><%= objective[:title] %></strong>: <%= objective[:description] %></li>
-      <%- end %>
+      <% SecretObjective.action_phase.each do |objective| %>
+        <li><strong><%= objective.title %></strong>: <%= objective.description %></li>
+      <% end %>
     </ul>
   </details>
 
   <details>
     <summary>Secret Objectives - Status Phase</summary>
     <ul>
-      <% t("secret_status_objectives").each do |_key, objective| %>
-        <li><strong><%= objective[:title] %></strong>: <%= objective[:description] %></li>
+      <% SecretObjective.status_phase.each do |objective| %>
+        <li><strong><%= objective.title %></strong>: <%= objective.description %></li>
       <% end %>
     </ul>
   </details>

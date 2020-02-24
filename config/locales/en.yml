@@ -247,127 +247,165 @@ en:
       title: Nullification Field
       color: Y
       requires: Y/Y
-  stage1_objectives:
+  public_objectives:
     corner_the_market:
       title: Corner the Market
       description: Control 4 planets that each have the same planet trait
+      stage: one
     develop_weaponry:
       title: Develop Weaponry
       description: Own 2 unit upgrade technologies
+      stage: one
     diversify_research:
       title: Diversify Research
       description: Own 2 technologies in each of 2 colors
+      stage: one
     erect_a_monument:
       title: Erect a Monument
       description: Spend 8 resources
+      stage: one
     expand_borders:
       title: Expand Borders
       description: Control 6 planets in non-home systems
+      stage: one
     found_research_outposts:
       title: Found Research Outposts
       description: Control 3 planets that have technology specialties
+      stage: one
     intimidate_council:
       title: Intimidate Council
       description: Have 1 or more ships in 2 systems that are adjacent to Mecatol Rex's System
+      stage: one
     lead_from_the_front:
       title: Lead From the Front
       description: Spend a total of 3 tokens from your tactic and/or strategy pools
+      stage: one
     negotiate_trade_routes:
       title: Negotiate Trade Routes
       description: Spend 5 trade goods
+      stage: one
     sway_the_council:
       title: Sway the Council
       description: Spend 8 influence
-  stage2_objectives:
+      stage: one
     centralize_galactic_trade:
       title: Centralize Galactic Trade
       description: Spend 10 trade goods
+      stage: two
     conquer_the_weak:
       title: Conquer the Weak
       description: Control 1 planet that is in another player's home system
+      stage: two
     form_galactic_brain_trust:
       title: Form Galactic Brain Trust
       description: Control 5 planets that have technology specialties
+      stage: two
     found_a_golden_age:
       title: Found a Golden Age
       description: Spend 16 resources
+      stage: two
     galvanize_the_people:
       title: Galvanize the People
       description: Spend a total of 6 tokens from your tactic and/or strategy pools
+      stage: two
     manipulate_galactic_law:
       title: Manipulate Galactic Law
       description: Spend 16 influence
+      stage: two
     master_the_sciences:
       title: Master the Sciences
       description: Own 2 technologies in each of 4 colors
+      stage: two
     revolutionize_warfare:
       title: Revolutionize Warfare
       description: Own 3 unit upgrade technologies
+      stage: two
     subdue_the_galaxy:
       title: Subdue the Galaxy
       description: Control 11 planets in non-home systems
+      stage: two
     unify_the_colonies:
       title: Unify the Colonies
       description: Control 6 planets that each have the same planet trait
-  secret_action_objectives:
+      stage: two
+  secret_objectives:
     destroy_their_greatest_ship:
       title: Destroy Their Greatest Ship
       description: Destroy another player's war sun or flagship
+      phase: action
     make_an_example_of_their_world:
       title: Make an Example of Their World
       description: Use BOMBARDMENT to destroy the last of a player's ground forces on a planet
+      phase: action
     spark_a_rebellion:
       title: Spark a Rebellion
       description: Win a combat against a player who has the most victory points
+      phase: action
     turn_their_fleets_to_dust:
       title: Turn Their Fleets to Dust
       description: Use SPACE CANNON to destroy the last of a player's ships in a system
+      phase: action
     unveil_flagship:
       title: Unveil Flagship
       description: Win a space combat in a system that contains your flagship. You cannot score this objective if your flagship is destroyed in the combat
-  secret_status_objectives:
+      phase: action
     adapt_new_strategies:
       title: Adapt New Strategies
       description: Own 2 faction technologies. (Valefar Assimilator technologies do not count toward this objective)
+      phase: status
     become_the_gatekeeper:
       title: Become the Gatekeeper
       description: Have 1 or more ships in a system that contains an alpha wormhole and 1 or more ships in a system that contains a beta wormhole
+      phase: status
     control_the_region:
       title: Control the Region
       description: Have 1 or more ships in 6 systems
+      phase: status
     cut_supply_lines:
       title: Cut Supply Lines
       description: Have 1 or more ships in the same system as another player's space dock
+      phase: status
     establish_a_perimeter:
       title: Establish a Perimeter
       description: Have 4 PDS units on the game board
+      phase: status
     forge_an_alliance:
       title: Forge an Alliance
       description: Control 4 cultural planets
+      phase: status
     form_a_spy_network:
       title: Form a Spy Network
       description: Discard 5 action Cards
+      phase: status
     fuel_the_war_machine:
       title: Fuel the War Machine
       description: Have 3 space docks on the game board
+      phase: status
     gather_a_mighty_fleet:
       title: Gather a Mighty Fleet
       description: Have 5 dreadnoughts on the game board
+      phase: status
     learn_the_secrets_of_the_cosmos:
       title: Learn the Secrets of the Cosmos
       description: Have 1 or more ships in 3 systems that are each adjacent to an anomaly
+      phase: status
     master_the_laws_of_physics:
       title: Master the Laws of Physics
       description: Own 4 technologies of the same color
+      phase: status
     mine_rare_metals:
       title: Mine Rare Metals
       description: Control 4 hazardous planets
+      phase: status
     monopolize_production:
       title: Monopolize Production
       description: Control 4 industrial planets
+      phase: status
     occupy_the_seat_of_the_empire:
       title: Occupy the Seat of the Empire
       description: Control Mecatol Rex and have 3 or more ships in its system
+      phase: status
     threaten_enemies:
       title: Threaten Enemies
       description: Have 1 or more ships in a system that is adjacent to another player's home system
+      phase: status
