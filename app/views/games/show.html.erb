@@ -14,6 +14,9 @@
           <% if @game.active? && @game.current_round.action_phase? %>
             <strong><%= @game.current_round.player_stats.find_by(player: player).strategy_card %></strong>
           <% end %>
+          <% if @game.custodian_taken? && @game.custodian_owner == player %>
+            [Custodian]
+          <% end %>
         </div>
       <% end %>
     <% end %>

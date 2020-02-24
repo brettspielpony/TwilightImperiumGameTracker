@@ -1,5 +1,5 @@
 <section class="mb-s">
-  <% if @game.custodian_available? %>
+  <% unless @game.custodian_taken? %>
     <h3>Score Custodian for Player</h3>
     <%= form_with scope: @game, method: :patch, class: "form-columns form-slim" do |f| %>
       <%= f.select :custodian_owner_id, @game.players.map { |p| [p.name, p.id] } %>

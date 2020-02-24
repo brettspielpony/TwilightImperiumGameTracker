@@ -54,8 +54,8 @@ class Game < ApplicationRecord
     @active_public_objectives ||= rounds.map { |round| round.public_objectives }.flatten
   end
 
-  def custodian_available?
-    custodian_owner.blank?
+  def custodian_taken?
+    custodian_owner.present?
   end
 
   def current_round
