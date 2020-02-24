@@ -41,7 +41,10 @@
   <%= form_with scope: :technology, url: game_player_technologies_path(@current_game, @player), class: "form-columns" do |f| %>
     <div class="select">
       <%= f.label :key, "Which tech?" %>
-      <%= f.collection_select :key, available_tech_for_player(@player), :first, :last %>
+      <%= f.text_field :key, list: "technologies" %>
+      <datalist id="technologies">
+        <%= options_from_collection_for_select available_tech_for_player(@player), :key, :title %>
+      </datalist>
     </div>
 
     <%= f.submit "Add" %>

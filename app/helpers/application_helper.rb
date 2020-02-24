@@ -5,9 +5,7 @@ module ApplicationHelper
   end
 
   def available_tech_for_player(player)
-    Technology.all.map do |tech|
-      [tech.key, tech.title]
-    end.reject { |(tech_key, _title)| player.technologies.any? { |tech| tech.key == tech_key } }
+    Technology.all.reject { |tech| player.technologies.any? { |player_tech| player_tech.key == tech.key } }
   end
 
   def strategy_cards
