@@ -21,8 +21,8 @@ class Game < ApplicationRecord
   serialize :map
   serialize :player_scores, PlayerScores
 
-  has_many :players
-  has_many :rounds
+  has_many :rounds, dependent: :destroy
+  has_many :players, dependent: :destroy
   belongs_to :winner, class_name: "Player", optional: true
   belongs_to :custodian_owner, class_name: "Player", optional: true
 

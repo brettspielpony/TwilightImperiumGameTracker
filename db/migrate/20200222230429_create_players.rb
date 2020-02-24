@@ -9,7 +9,7 @@ class CreatePlayers < ActiveRecord::Migration[6.0]
       t.string :scored_secret_objectives, array: true, default: []
       t.string :technologies, array: true, default: []
 
-      t.references :game, index: true
+      t.references :game, index: true, null: false
 
       t.timestamps
     end

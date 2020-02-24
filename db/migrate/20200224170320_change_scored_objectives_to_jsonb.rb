@@ -4,7 +4,7 @@ class ChangeScoredObjectivesToJsonb < ActiveRecord::Migration[6.0]
     remove_column :players, :scored_public_objectives, :string
     remove_column :player_stats, :scored_public_objectives, :string
 
-    add_column :player_stats, :scored_public_objectives, :jsonb, default: []
-    add_column :player_stats, :scored_secret_objectives, :jsonb, default: []
+    add_column :player_stats, :scored_public_objectives, :jsonb, default: [], null: false
+    add_column :player_stats, :scored_secret_objectives, :jsonb, default: [], null: false
   end
 end
