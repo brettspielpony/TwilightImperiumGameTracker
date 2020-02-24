@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_24_162458) do
+ActiveRecord::Schema.define(version: 2020_02_24_172831) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,7 +33,8 @@ ActiveRecord::Schema.define(version: 2020_02_24_162458) do
     t.string "strategy_card", null: false
     t.bigint "player_id"
     t.bigint "round_id"
-    t.string "scored_public_objectives", default: [], null: false, array: true
+    t.jsonb "scored_public_objectives", default: []
+    t.jsonb "scored_secret_objectives", default: []
     t.index ["player_id"], name: "index_player_stats_on_player_id"
     t.index ["round_id"], name: "index_player_stats_on_round_id"
   end
@@ -42,8 +43,6 @@ ActiveRecord::Schema.define(version: 2020_02_24_162458) do
     t.string "uid", null: false
     t.string "name", null: false
     t.string "faction", null: false
-    t.string "scored_public_objectives", default: [], array: true
-    t.string "scored_secret_objectives", default: [], array: true
     t.bigint "game_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -59,7 +58,7 @@ ActiveRecord::Schema.define(version: 2020_02_24_162458) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "aasm_state", default: "strategy_phase", null: false
-    t.string "public_objectives", default: [], null: false, array: true
+    t.jsonb "revealed_objectives", default: []
     t.index ["game_id"], name: "index_rounds_on_game_id"
   end
 

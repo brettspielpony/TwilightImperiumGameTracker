@@ -5,20 +5,14 @@
   <section class="mb-s">
     <h2>Score Objectives</h2>
     <ul>
-    <% @current_game.active_public_objectives.group_by(&:stage).each do |(stage, objectives)| %>
-      <li><strong><%= stage %></strong>
-       <ul>
-         <% objectives.each do |objective| %>
-           <li>
-           <%= objective.title %>
-           <% if @current_game.current_round.player_stats.find_by(player: @player).scored_public_objectives.none? { |scored_objective| scored_objective.key == objective.key } %>
-             [<%= link_to "Score!", game_player_objective_score_path(@current_game, @player, objective.key), method: :post %>]
-           <% else %>
-             ✓
-           <% end %>
-           </li>
-         <% end %>
-      </ul>
+    <% @current_game.revealed_objectives.each do |objective| %>
+      <li>
+        <strong><%= objective.title %> (<%= t("stages.#{objective.stage}") %>)</strong>
+        <% if @player.scored_objective?(objective) %>
+          ✓
+        <% else %>
+          [<%= link_to "Score!", game_player_objective_score_path(@current_game, @player, objective.key), method: :post %>]
+        <% end %>
       </li>
     <% end %>
     </ul>
@@ -41,7 +35,7 @@
   <%= form_with scope: :technology, url: game_player_technologies_path(@current_game, @player), class: "form-columns" do |f| %>
     <div class="select">
       <%= f.label :key, "Which tech?" %>
-      <%= f.text_field :key, list: "technologies" %>
+      <%= f.text_field :key, list: "technologies", autocomplete: "off" %>
       <datalist id="technologies">
         <%= options_from_collection_for_select available_tech_for_player(@player), :key, :title %>
       </datalist>
