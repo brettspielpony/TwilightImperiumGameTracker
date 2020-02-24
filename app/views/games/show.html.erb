@@ -40,17 +40,17 @@
   <% if @game.active_public_objectives.any? %>
     <details>
       <summary>Public Objectives</summary>
-      <ul>
       <% @game.active_public_objectives.group_by(&:stage).each do |(stage, objectives)| %>
-        <li><strong><%= stage %></strong>
-         <ul>
-           <% objectives.each do |objective| %>
-            <li><%= objective.title %></li>
-           <% end %>
-        </ul>
-        </li>
+        <h3><%= stage %></h3>
+        <ul>
+          <% objectives.each do |objective| %>
+          <li>
+            <%= objective.title %>
+            <%- # TODO: Render which player scored this objective %>
+          </li>
+          <% end %>
+       </ul>
       <% end %>
-      </ul>
     </details>
   <% end %>
 </section>
