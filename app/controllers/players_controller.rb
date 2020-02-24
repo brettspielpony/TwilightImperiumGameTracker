@@ -29,7 +29,7 @@ class PlayersController < ApplicationController
   private
 
   def new_player_params
-    params.require(:player).permit(:name, :faction).merge(game: @current_game)
+    params.require(:player).permit(:name, :faction, :seat_number).merge(game: @current_game)
   end
 
   def load_current_game

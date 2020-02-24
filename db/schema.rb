@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2020_02_24_205814) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.jsonb "technologies", default: [], null: false
+    t.integer "seat_number"
     t.index ["game_id"], name: "index_players_on_game_id"
   end
 
