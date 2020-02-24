@@ -1,0 +1,47 @@
+<h2><%= t("factions.#{@player.faction}") %></h2>
+<p>Played by <%= @player.name %></p>
+
+<% if @current_game.active? && @current_game.current_round.action_phase? %>
+  <section class="mb-s">
+    <h2>Score Objectives</h2>
+    <ul>
+    <% @current_game.revealed_objectives.each do |objective| %>
+      <li>
+        <strong><%= objective.title %> (<%= t("stages.#{objective.stage}") %>)</strong>
+        <% if @player.scored_objective?(objective) %>
+          ✓
+        <% else %>
+          [<%= link_to "Score!", game_player_objective_score_path(@current_game, @player, objective.key), method: :post %>]
+        <% end %>
+      </li>
+    <% end %>
+  </section>
+<% end %>
+
+<section class="mb-l">
+  <h3>Technologies</h3>
+  <% if @player.technologies.any? %>
+    <ul>
+      <% @player.technologies.each do |technology| %>
+        <li>
+          <%= link_to technology.title, technology_path(technology) %>
+          [<%= link_to "remove", game_player_technology_path(@current_game, @player, technology.key), method: :delete %>]</li>
+      <% end %>
+    </ul>
+  <% else %>
+    No technologies yet. Add starting Technologies.
+  <% end %>
+
+  <h3>Add Tech</h3>
+  <%= form_with scope: :technology, url: game_player_technologies_path(@current_game, @player), class: "form-columns" do |f| %>
+    <div class="select">
+      <%= f.label :key, "Which tech?" %>
+      <%= f.text_field :key, list: "technologies", autocomplete: "off" %>
+      <datalist id="technologies">
+        <%= options_from_collection_for_select available_tech_for_player(@player), :key, :title %>
+      </datalist>
+    </div>
+
+    <%= f.submit "Add" %>
+  <% end %>
+</section>

@@ -1,2 +1,97 @@
-<%= image_tag "logo.png" %>
-Welcome, my galactical friend.
+<% content_for :header do %>
+  <%= image_tag "logo.png" %>
+<% end %>
+
+<section class="section-center mb-l">
+  <h1>Welcome, my galactical friend.</h1>
+
+  <p>
+    Easily track your epic Twilight Imperium IV game sessions.
+  </p>
+
+  <%= button_to "New Game", new_game_url, method: :get %>
+  <%= button_to "Load Game", new_game_url, method: :get %>
+</section>
+
+<% if Rails.env.development? %>
+  <% if Game.active.any? %>
+    <section>
+      <h2>Active Games</h2>
+      <ul>
+        <% Game.active.find_each do |game| %>
+          <li><%= link_to game.name, game %></li>
+        <% end %>
+      </ul>
+    </section
+  <% end %>
+
+  <% if Game.closed.any? %>
+    <section>
+      <h2>Closed Games</h2>
+      <ul>
+        <% Game.closed.find_each do |game| %>
+          <li><%= link_to game.name, game %>, endet <%= l(game.ended_at, format: :short) %></li>
+        <% end %>
+      </ul>
+    </section
+  <% end %>
+<% end %>
+
+<section>
+  <h2>Faction and Objectives Overview</h2>
+
+  <details>
+    <summary>Factions Overview</summary>
+    <ul>
+      <% t("factions").each do |_short, name| %>
+        <li><%= name %></li>
+      <% end %>
+    </ul>
+  </details>
+
+  <details>
+    <summary>Stage I Objectives</summary>
+    <ul>
+      <% PublicObjective.stage_one.each do |objective| %>
+        <li><strong><%= objective.title %></strong>: <%= objective.description %></li>
+      <% end %>
+    </ul>
+  </details>
+
+  <details>
+    <summary>Stage II Objectives</summary>
+    <ul>
+      <% PublicObjective.stage_two.each do |objective| %>
+        <li><strong><%= objective.title %></strong>: <%= objective.description %></li>
+      <% end %>
+    </ul>
+  </details>
+
+  <details>
+    <summary>Secret Objectives - Action Phase</summary>
+    <ul>
+      <% SecretObjective.action_phase.each do |objective| %>
+        <li><strong><%= objective.title %></strong>: <%= objective.description %></li>
+      <% end %>
+    </ul>
+  </details>
+
+  <details>
+    <summary>Secret Objectives - Status Phase</summary>
+    <ul>
+      <% SecretObjective.status_phase.each do |objective| %>
+        <li><strong><%= objective.title %></strong>: <%= objective.description %></li>
+      <% end %>
+    </ul>
+  </details>
+
+  <details>
+    <summary>Technologies</summary>
+    <ul>
+      <% t("technologies").each do |_key, technology| %>
+        <li><strong>[<%= technology[:color] || "N/A" %>] <%= technology[:title] %></strong>: <%= technology[:requires] %></li>
+      <% end %>
+    </ul>
+  </details>
+
+</section>

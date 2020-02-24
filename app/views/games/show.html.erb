@@ -1,0 +1,58 @@
+<h1><%= @game.name %></h1>
+
+<section>
+  <details <%= @game.preparing? ? "open" : "" %>>
+    <summary>Players</summary>
+
+    <% if @game.players.any? %>
+      <% @game.players.each do |player| %>
+        <div>
+          <%= link_to player.name, game_player_path(@game, player) %> (<%= t("factions.#{player.faction}") %>)
+          <% if @game.preparing? %>
+            [<%= link_to "remove", game_player_path(@game, player), method: :delete, data: { confirm: "Sure?" } %>]
+          <% end %>
+          <% if @game.active? && @game.current_round.action_phase? %>
+            <strong><%= @game.current_round.player_stats.find_by(player: player).strategy_card %></strong>
+          <% end %>
+          <% if @game.custodian_taken? && @game.custodian_owner == player %>
+            [Custodian]
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  </details>
+
+  <% if @game.active? %>
+    <details>
+      <summary>Scores</summary>
+
+      <%= form_with scope: @game, method: :patch, class: "form-columns" do |f| %>
+        <% @game.players.each do |player| %>
+          <player-score-display player-name="<%= player.name %>">
+            <input class="player-score-slider" name="game[player_scores[<%= player.id %>]]" value="<%= @game.player_score(player) %>" type="range" min="0" max="10" step="1">
+          </player-score-display>
+        <% end %>
+        <%= f.submit "Save Score" %>
+      <% end %>
+    </details>
+  <% end %>
+
+  <% if @game.revealed_objectives.any? %>
+    <h2>Revealed Objectives</h2>
+    <ul>
+    <% @game.revealed_objectives.each do |objective| %>
+      <li>
+        <strong><%= objective.title %> (<%= t("stages.#{objective.stage}") %>)</strong>
+      </li>
+    <% end %>
+    </ul>
+  <% end %>
+</section>
+
+<%= render "games/states/#{@game.aasm_state}", game: @game %>
+
+<section>
+  <% if @game.may_close? %>
+    <%= button_to "Close Game", close_game_path(@game), data: { confirm: "Sure?" } %>
+  <% end %>
+</section

@@ -1,33 +1,414 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  stages:
+    one: Stage 1
+    two: Stage 2
+  factions:
+    arborec: The Arborec
+    barony: The Barony of Letnev
+    creuss: The Ghosts of Creuss
+    hacan: The Emirates of Hacan
+    jolnar: The Universities of Jol-Nar
+    l1z1x: The L1Z1X Mindnet
+    mentak: The Mentak Coalition
+    muaat: The Embers of Muaat
+    naalu: The Naalu Collective
+    nekro: The Nekro Virus
+    sardakk: The Sardakk N'orr
+    saar: The Clan of Saar
+    sol: The Federation of Sol
+    winnu: The Winnu
+    xxcha: The Xxcha Kingdom
+    yin: The Yin Brotherhood
+    yssaril: The Yssaril Tribes
+  strategy_cards:
+    leadership:
+      initiative_order: 1
+      title: Leadership
+      description: A player might choose this card to gain more command tokens, enabling them to perform more actions during the action phase.
+    diplomacy:
+      initiative_order: 2
+      title: Diplomacy
+      description: A player might choose this card if they feel threatened, to prevent other players from attacking a system. Or, to refresh exhausted planets, so their resources and influence may be spent again that round.
+    politics:
+      initiative_order: 3
+      title: Politics
+      description: A player might choose this card to draw action cards, increasing the variety of abilities that are available to them, as well as to control who will be the next speaker, and what agendas will come before the Galactic Council.
+    construction:
+      initiative_order: 4
+      title: Construction
+      description: A player might choose this card to produce planetary structures, such as space docks and PDS units.
+    trade:
+      initiative_order: 5
+      title: Trade
+      description: A player might choose this card to gain trade goods and commodities, which he could use to produce additional units or trade to other players.
+    warfare:
+      initiative_order: 6
+      title: Warfare
+      description: A player might choose this card to allow some of his ships to move twice, or to build a unit and move it during the same game round.
+    technology:
+      initiative_order: 7
+      title: Technology
+      description: A player might choose this card to research a new technology that would grant him a new ability or unit upgrade.
+    imperial:
+      initiative_order: 8
+      title: Imperial
+      description: A player might choose this card to score victory points early, or to draw an additional secret objective, granting them additional routes to victory.
+  technologies:
+    light_wave_deflector:
+      title: Light/Wave Deflector
+      color: B
+      requires: B/B/B
+    fleet_logistics:
+      title: Fleet Logistics
+      color: B
+      requires: B/B
+    gravity_drive:
+      title: Gravity Drive
+      color: B
+      requires: B
+    antimass_deflectors:
+      title: Antimass Deflectors
+      color: B
+      requires:
+    integrated_economy:
+      title: Integrated Economy
+      color: Y
+      requires: Y/Y/Y
+    transit_diodes:
+      title: Transit Diodes
+      color: Y
+      requires: Y/Y
+    graviton_laser_system:
+      title: Graviton Laser System
+      color: Y
+      requires: Y
+    sarween_tools:
+      title: Sarween Tools
+      color: Y
+      requires:
+    assault_cannon:
+      title: Assault Cannon
+      color: R
+      requires: R/R/R
+    duranium_armor:
+      title: Duranium Armor
+      color: R
+      requires: R/R
+    magen_defense_grid:
+      title: Magen Defense Grid
+      color: R
+      requires: R
+    plasma_scoring:
+      title: Plasma Scoring
+      color: R
+      requires:
+    x_89_bacterial_weapon:
+      title: X-89 Bacterial weapon
+      color: G
+      requires: G/G/G
+    hyper_metabolism:
+      title: Hyper Metabolism
+      color: G
+      requires: G/G
+    dacxive_animators:
+      title: Dacxive Animators
+      color: G
+      requires: G
+    neural_motivator:
+      title: Neural Motivator
+      color: G
+      requires:
+    mirror_computing:
+      title: Mirror Computing
+      color: Y
+      requires: Y/Y/Y
+    salvage_operations:
+      title: Salvage Operations
+      color: Y
+      requires: Y/Y
+    mageon_implants:
+      title: Mageon Implants
+      color: G
+      requires: G/G/G
+    transparasteel_plating:
+      title: Transparasteel Plating
+      color: G
+      requires: G
+    quantum_datahub_node:
+      title: Quantum Datahub Node
+      color: Y
+      requires: Y/Y/Y
+    production_biomes:
+      title: Production Biomes
+      color: G
+      requires: G/G
+    yin_spinner:
+      title: Yin Spinner
+      color: G
+      requires: G/G
+    impulse_core:
+      title: Impulse Core
+      color: Y
+      requires: Y/Y
+    lazax_gate_folding:
+      title: Lazax Gate Folding
+      color: B
+      requires: B/B
+    hegemonic_trade_policy:
+      title: Hegemonic Trade Policy
+      color: Y
+      requires: Y/Y
+    valefar_assimilator_y_and_x:
+      title: Valefar Assimilator Y and X
+      color:
+      requires:
+    l4_disruptors:
+      title: L4 Disruptors
+      color: Y
+      requires: Y
+    non_euclidean_shielding:
+      title: Non-Euclidean Shielding
+      color: R
+      requires: R/R
+    spacial_conduit_cylinder:
+      title: Spacial Conduit Cylinder
+      color: B
+      requires: B/B
+    e_res_siphons:
+      title: E-Res Siphons
+      color: Y
+      requires: Y/Y
+    spec_ops_2:
+      title: Spec Ops 2
+      color: G
+      requires: G/G
+    advanced_carrier_2:
+      title: Advanced Carrier 2
+      color: B
+      requires: B/B
+    hybrid_crystal_fighter_2:
+      title: Hybrid Crystal Fighter 2
+      color:
+      requires: G/B
+    neuroglaive:
+      title: Neuroglaive
+      color: G
+      requires: G/G/G
+    super_dreadnuaght_2:
+      title: Super Dreadnuaght 2
+      color:
+      requires: B/B/Y
+    inheritance_systems:
+      title: Inheritance Systems
+      color: Y
+      requires: Y/Y
+    letani_warrior_2:
+      title: Letani Warrior 2
+      color: G
+      requires: G/G
+    bioplasmosis:
+      title: Bioplasmosis
+      color: G
+      requires: G/G
+    exotrireme_2:
+      title: Exotrireme 2
+      color:
+      requires: B/B/Y
+    valkyrie_particle_weave:
+      title: Valkyrie Particle Weave
+      color: G
+      requires: R/R
+    prototype_war_sun_2:
+      title: Prototype War Sun 2
+      color:
+      requires: Y/R/R/R
+    magmus_reactor:
+      title: Magmus Reactor
+      color: R
+      requires: R/R
+    chaos_mapping:
+      title: Chaos Mapping
+      color: B
+      requires: B
+    floating_factory:
+      title: Floating Factory
+      color: Y
+      requires: Y/Y
+    wormhole_generator:
+      title: Wormhole Generator
+      color: B
+      requires: B/B
+    dimensional_splicer:
+      title: Dimensional Splicer
+      color:
+      requires: R
+    instinct_training:
+      title: Instinct Training
+      color: G
+      requires: G
+    nullification_field:
+      title: Nullification Field
+      color: Y
+      requires: Y/Y
+  public_objectives:
+    corner_the_market:
+      title: Corner the Market
+      description: Control 4 planets that each have the same planet trait
+      stage: one
+    develop_weaponry:
+      title: Develop Weaponry
+      description: Own 2 unit upgrade technologies
+      stage: one
+    diversify_research:
+      title: Diversify Research
+      description: Own 2 technologies in each of 2 colors
+      stage: one
+    erect_a_monument:
+      title: Erect a Monument
+      description: Spend 8 resources
+      stage: one
+    expand_borders:
+      title: Expand Borders
+      description: Control 6 planets in non-home systems
+      stage: one
+    found_research_outposts:
+      title: Found Research Outposts
+      description: Control 3 planets that have technology specialties
+      stage: one
+    intimidate_council:
+      title: Intimidate Council
+      description: Have 1 or more ships in 2 systems that are adjacent to Mecatol Rex's System
+      stage: one
+    lead_from_the_front:
+      title: Lead From the Front
+      description: Spend a total of 3 tokens from your tactic and/or strategy pools
+      stage: one
+    negotiate_trade_routes:
+      title: Negotiate Trade Routes
+      description: Spend 5 trade goods
+      stage: one
+    sway_the_council:
+      title: Sway the Council
+      description: Spend 8 influence
+      stage: one
+    centralize_galactic_trade:
+      title: Centralize Galactic Trade
+      description: Spend 10 trade goods
+      stage: two
+    conquer_the_weak:
+      title: Conquer the Weak
+      description: Control 1 planet that is in another player's home system
+      stage: two
+    form_galactic_brain_trust:
+      title: Form Galactic Brain Trust
+      description: Control 5 planets that have technology specialties
+      stage: two
+    found_a_golden_age:
+      title: Found a Golden Age
+      description: Spend 16 resources
+      stage: two
+    galvanize_the_people:
+      title: Galvanize the People
+      description: Spend a total of 6 tokens from your tactic and/or strategy pools
+      stage: two
+    manipulate_galactic_law:
+      title: Manipulate Galactic Law
+      description: Spend 16 influence
+      stage: two
+    master_the_sciences:
+      title: Master the Sciences
+      description: Own 2 technologies in each of 4 colors
+      stage: two
+    revolutionize_warfare:
+      title: Revolutionize Warfare
+      description: Own 3 unit upgrade technologies
+      stage: two
+    subdue_the_galaxy:
+      title: Subdue the Galaxy
+      description: Control 11 planets in non-home systems
+      stage: two
+    unify_the_colonies:
+      title: Unify the Colonies
+      description: Control 6 planets that each have the same planet trait
+      stage: two
+  secret_objectives:
+    destroy_their_greatest_ship:
+      title: Destroy Their Greatest Ship
+      description: Destroy another player's war sun or flagship
+      phase: action
+    make_an_example_of_their_world:
+      title: Make an Example of Their World
+      description: Use BOMBARDMENT to destroy the last of a player's ground forces on a planet
+      phase: action
+    spark_a_rebellion:
+      title: Spark a Rebellion
+      description: Win a combat against a player who has the most victory points
+      phase: action
+    turn_their_fleets_to_dust:
+      title: Turn Their Fleets to Dust
+      description: Use SPACE CANNON to destroy the last of a player's ships in a system
+      phase: action
+    unveil_flagship:
+      title: Unveil Flagship
+      description: Win a space combat in a system that contains your flagship. You cannot score this objective if your flagship is destroyed in the combat
+      phase: action
+    adapt_new_strategies:
+      title: Adapt New Strategies
+      description: Own 2 faction technologies. (Valefar Assimilator technologies do not count toward this objective)
+      phase: status
+    become_the_gatekeeper:
+      title: Become the Gatekeeper
+      description: Have 1 or more ships in a system that contains an alpha wormhole and 1 or more ships in a system that contains a beta wormhole
+      phase: status
+    control_the_region:
+      title: Control the Region
+      description: Have 1 or more ships in 6 systems
+      phase: status
+    cut_supply_lines:
+      title: Cut Supply Lines
+      description: Have 1 or more ships in the same system as another player's space dock
+      phase: status
+    establish_a_perimeter:
+      title: Establish a Perimeter
+      description: Have 4 PDS units on the game board
+      phase: status
+    forge_an_alliance:
+      title: Forge an Alliance
+      description: Control 4 cultural planets
+      phase: status
+    form_a_spy_network:
+      title: Form a Spy Network
+      description: Discard 5 action Cards
+      phase: status
+    fuel_the_war_machine:
+      title: Fuel the War Machine
+      description: Have 3 space docks on the game board
+      phase: status
+    gather_a_mighty_fleet:
+      title: Gather a Mighty Fleet
+      description: Have 5 dreadnoughts on the game board
+      phase: status
+    learn_the_secrets_of_the_cosmos:
+      title: Learn the Secrets of the Cosmos
+      description: Have 1 or more ships in 3 systems that are each adjacent to an anomaly
+      phase: status
+    master_the_laws_of_physics:
+      title: Master the Laws of Physics
+      description: Own 4 technologies of the same color
+      phase: status
+    mine_rare_metals:
+      title: Mine Rare Metals
+      description: Control 4 hazardous planets
+      phase: status
+    monopolize_production:
+      title: Monopolize Production
+      description: Control 4 industrial planets
+      phase: status
+    occupy_the_seat_of_the_empire:
+      title: Occupy the Seat of the Empire
+      description: Control Mecatol Rex and have 3 or more ships in its system
+      phase: status
+    threaten_enemies:
+      title: Threaten Enemies
+      description: Have 1 or more ships in a system that is adjacent to another player's home system
+      phase: status

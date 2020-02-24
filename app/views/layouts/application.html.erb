@@ -1,15 +1,43 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Src</title>
+    <title>Twilight Imperium Game Tracker</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'components', 'data-turbolinks-eval': false %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <%= yield :header %>
+      <% if controller_name != "welcome" %>
+        <%= link_to "Home", root_path %>
+      <% end %>
+
+      <% if @current_game %>
+        <span>/</span>
+        <%= link_to @current_game.name, @current_game %>
+      <% end %>
+    </header>
+
+    <main>
+      <%= yield %>
+    </main>
+
+    <footer>
+      <h3>Disclaimer</h3>
+
+      <p>
+        This project has not been officially approved or is any other way associated with Fantasy Flight Games. <a href="https://www.fantasyflightgames.com/en/products/twilight-imperium-fourth-edition/">Twilight Imperium Fourth Edition</a> is a board game created and owned by Fantasy Flight Games. All copyright belongs to <a href="https://www.fantasyflightgames.com/en/index/">Fantasy Flight Games</a>.
+      </p>
+
+      <p>
+        This project is licensed under the MIT License. <a href="https://github.com/brettspielpony/TwilightImperiumGameTracker">Contributions</a> are welcome!
+      </p>
+    </footer>
   </body>
 </html>

@@ -22,24 +22,13 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.12.1",
+    "@rails/ujs": "^6.0.0",
     "faucet-pipeline-js": "^2.0.10",
+    "faucet-pipeline-jsmin": "^2.0.10",
     "faucet-pipeline-sass": "^1.3.1",
     "faucet-pipeline-static": "^1.1.0",
-    "faucet-pipeline-jsmin": "^2.0.10",
-    "@rails/ujs": "^6.0.0",
     "turbolinks": "^5.2.0",
-    "uitil": "^2.5.0"
-  },
-  "devDependencies": {
-    "eslint": "^6.8.0",
-    "eslint-config-semistandard": "^15.0.0",
-    "eslint-config-standard": "^14.1.0",
-    "eslint-plugin-import": "^2.20.1",
-    "eslint-plugin-node": "^11.0.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1",
-    "stylelint": "^13.2.0",
-    "stylelint-config-recommended-scss": "^4.2.0",
-    "stylelint-scss": "^3.14.2"
+    "uitil": "^2.5.0",
+    "water.css": "github:kognise/water.css"
   }
 }

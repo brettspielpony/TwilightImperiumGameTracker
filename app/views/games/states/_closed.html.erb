@@ -1,0 +1,12 @@
+<section class="mb-l">
+<dl>
+  <dt>Winner:</dt>
+  <dd><%= link_to_if game.winner.present?, game.winner&.name || ??, game.winner %></dd>
+  <dt>Started at:</dt>
+  <dd><%= l(game.started_at, format: :short) %></dd>
+  <dt>Endet at:</dt>
+  <dd><%= l(game.ended_at, format: :short) %></dd>
+  <dt>Playtime:</dt>
+  <dd><%= distance_of_time_in_words(game.playtime) %></dd>
+</dl>
+</section>

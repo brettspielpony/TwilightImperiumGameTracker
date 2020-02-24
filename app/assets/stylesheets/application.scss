@@ -1,1 +1,112 @@
 @import "./base/fonts";
+
+@import "node_modules/water.css/dist/dark.standalone";
+
+// CONFIG
+$breakpoint-phone: 640px;
+
+html, body {
+  height: 100%;
+}
+
+body { // NOTE: Overidding water.css' body styles
+  padding: 0;
+  margin: 0;
+}
+
+main, footer {
+  padding: 0 1rem;
+}
+
+header {
+  border-bottom: 1px var(--text-muted) solid;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-center {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-columns {
+  display: flex;
+  flex-direction: column;
+
+  input {
+    flex-grow: 1;
+  }
+
+  .select {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    @media only screen and (min-width: #{$breakpoint-phone}) {
+      flex-wrap: nowrap;
+    }
+
+    label {
+      font-weight: bold;
+      margin-right: 1rem;
+      margin-bottom: .5rem;
+
+      @media only screen and (min-width: #{$breakpoint-phone}) {
+        margin-bottom: 0;
+      }
+    }
+
+    select {
+      flex: 1 1 auto;
+    }
+  }
+
+  input[type='submit'] {
+    margin-top: 2rem;
+  }
+
+  &.form-slim {
+    input[type='submit'] {
+      margin-top: 0;
+    }
+  }
+}
+
+input[type=range].player-score-slider {
+  width: 100%;
+}
+
+.mb-s {
+  margin-bottom: 1rem;
+}
+
+.mb-l {
+  margin-bottom: 5rem;
+}
+
+main {
+  flex: 1 0 auto;
+  justify-content: center;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Slider';
+}
+
+footer {
+  flex-shrink: 0;
+}
+
+input[type='submit'] {
+  font-family: 'Slider';
+}
+
+summary {
+  font-family: 'Slider';
+}
