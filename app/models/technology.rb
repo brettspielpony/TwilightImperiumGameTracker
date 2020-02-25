@@ -8,6 +8,8 @@ class Technology < ValueObject
     when 'G' then :bionic
     when 'R' then :warfare
     when 'Y' then :cybernetic
+    else
+      :other
     end
   end
 end

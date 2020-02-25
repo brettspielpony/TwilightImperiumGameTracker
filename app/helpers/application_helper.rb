@@ -19,4 +19,25 @@ module ApplicationHelper
   def available_objectives_for_game(game)
     (PublicObjective.all - game.revealed_objectives)
   end
+
+  def image_tag_for_technology(technology)
+    # raise technology.type.to_s.inspect
+    image_tag "tech_icon_#{technology.type.to_s}.png", class: "technology-icon"
+  end
+
+  def image_tag_for_objective(objective)
+    if objective.respond_to?(:stage)
+      image_tag "public_objectives_stage_#{objective.stage}.png", class: "objective-icon"
+    else
+      image_tag "secret_objectives.png", class: "objective-icon"
+    end
+  end
+
+  def image_tag_for_faction(faction)
+    image_tag "#{faction}.png", class: "faction-icon"
+  end
+
+  def faction_name(faction)
+    I18n.t("factions.#{faction}")
+  end
 end

@@ -42,56 +42,46 @@
 
   <details>
     <summary>Factions Overview</summary>
-    <ul>
-      <% t("factions").each do |_short, name| %>
-        <li><%= name %></li>
-      <% end %>
-    </ul>
+    <% Faction.each do |key, name| %>
+    <div class="faction-title">
+      <%= image_tag_for_faction(key) %>
+      <h4><%= name %></h4>
+    </div>
+    <% end %>
   </details>
 
   <details>
     <summary>Stage I Objectives</summary>
-    <ul>
-      <% PublicObjective.stage_one.each do |objective| %>
-        <li><strong><%= objective.title %></strong>: <%= objective.description %></li>
-      <% end %>
-    </ul>
+    <% PublicObjective.stage_one.each do |objective| %>
+      <%= render objective %>
+    <% end %>
   </details>
 
   <details>
     <summary>Stage II Objectives</summary>
-    <ul>
-      <% PublicObjective.stage_two.each do |objective| %>
-        <li><strong><%= objective.title %></strong>: <%= objective.description %></li>
-      <% end %>
-    </ul>
+    <% PublicObjective.stage_two.each do |objective| %>
+      <%= render objective %>
+    <% end %>
   </details>
 
   <details>
     <summary>Secret Objectives - Action Phase</summary>
-    <ul>
-      <% SecretObjective.action_phase.each do |objective| %>
-        <li><strong><%= objective.title %></strong>: <%= objective.description %></li>
-      <% end %>
-    </ul>
+    <% SecretObjective.action_phase.each do |objective| %>
+      <%= render objective %>
+    <% end %>
   </details>
 
   <details>
     <summary>Secret Objectives - Status Phase</summary>
-    <ul>
-      <% SecretObjective.status_phase.each do |objective| %>
-        <li><strong><%= objective.title %></strong>: <%= objective.description %></li>
-      <% end %>
-    </ul>
+    <% SecretObjective.status_phase.each do |objective| %>
+      <%= render objective %>
+    <% end %>
   </details>
 
   <details>
     <summary>Technologies</summary>
-    <ul>
-      <% t("technologies").each do |_key, technology| %>
-        <li><strong>[<%= technology[:color] || "N/A" %>] <%= technology[:title] %></strong>: <%= technology[:requires] %></li>
-      <% end %>
-    </ul>
+    <% Technology.all.each do |technology| %>
+      <%= render technology %>
+    <% end %>
   </details>
-
 </section>

@@ -120,41 +120,63 @@ summary {
   margin-right: 10px;
 }
 
-.technologies-list {
-  list-style: none;
-  padding-left: 0;
-
-  li {
-    position: relative;
-    padding-left: 20px;
-  }
-
-  li:before {
-    content: '';
-    width: 16px;
-    height: 16px;
-    position: absolute;
-    background-size: cover;
-    background-position: center;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  &.technology-cybernetic li:before {
-    background-image: asset-url('tech_icon_cybernetic.png');
-  }
-
-  &.technology-propulsion li:before {
-    background-image: asset-url('tech_icon_propulsion.png');
-  }
-
-  &.technology-bionic li:before {
-    background-image: asset-url('tech_icon_bionic.png');
-  }
-
-  &.technology-warfare li:before {
-    background-image: asset-url('tech_icon_warfare.png');
-  }
+.objective {
+  display: flex;
 }
 
+.objective-image {
+  flex: 0 0 auto;
+  margin-right: .5em;
+}
+
+.objective-text {
+  flex: 1 1 auto;
+}
+
+.objective-icon {
+  height: 25px;
+  width: 25px;
+}
+
+.objective-title {
+  font-family: 'Slider';
+}
+
+.player-objective {
+  display: flex;
+}
+
+.player-objective--scored {
+  text-decoration: line-through;
+}
+
+.player-objective-actions {
+  margin-left: .5em;
+}
+
+.technology {
+  display: flex;
+}
+
+.technology-image {
+  flex: 0 0 auto;
+}
+
+.technology-icon {
+  flex: 0 0 auto;
+  width: 25px;
+}
+
+.technology-title {
+  flex: 1 1 auto;
+  font-family: 'Slider';
+  margin-left: .5em;
+}
+
+.player-technology {
+  display: flex;
+}
+
+.player-technology-actions {
+  margin-left: .5em;
+}
