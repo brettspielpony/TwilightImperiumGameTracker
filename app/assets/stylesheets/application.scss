@@ -110,3 +110,51 @@ input[type='submit'] {
 summary {
   font-family: 'Slider';
 }
+
+.faction-title {
+  display: flex;
+}
+
+.faction-icon {
+  height: 64px;
+  margin-right: 10px;
+}
+
+.technologies-list {
+  list-style: none;
+  padding-left: 0;
+
+  li {
+    position: relative;
+    padding-left: 20px;
+  }
+
+  li:before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &.technology-cybernetic li:before {
+    background-image: asset-url('tech_icon_cybernetic.png');
+  }
+
+  &.technology-propulsion li:before {
+    background-image: asset-url('tech_icon_propulsion.png');
+  }
+
+  &.technology-bionic li:before {
+    background-image: asset-url('tech_icon_bionic.png');
+  }
+
+  &.technology-warfare li:before {
+    background-image: asset-url('tech_icon_warfare.png');
+  }
+}
+

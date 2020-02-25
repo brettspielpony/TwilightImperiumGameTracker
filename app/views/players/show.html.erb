@@ -1,4 +1,8 @@
-<h2><%= t("factions.#{@player.faction}") %></h2>
+<div class="faction-title">
+  <%= image_tag "#{@player.faction}.png", class: "faction-icon" %>
+  <h2><%= t("factions.#{@player.faction}") %></h2>
+</div>
+
 <p>Played by <%= @player.name %></p>
 
 <% if @current_game.active? && @current_game.current_round.action_phase? %>
@@ -21,13 +25,16 @@
 <section class="mb-l">
   <h3>Technologies</h3>
   <% if @player.technologies.any? %>
-    <ul>
-      <% @player.technologies.each do |technology| %>
+    <% @player.technologies.group_by(&:type).each do |tech_type, technologies| %>
+    <ul class="technologies-list technology-<%= tech_type %>">
+      <% technologies.each do |technology| %>
         <li>
           <%= link_to technology.title, technology_path(technology) %>
-          [<%= link_to "remove", game_player_technology_path(@current_game, @player, technology.key), method: :delete %>]</li>
+          [<%= link_to "remove", game_player_technology_path(@current_game, @player, technology.key), method: :delete %>]
+        </li>
       <% end %>
     </ul>
+    <% end %>
   <% else %>
     No technologies yet. Add starting Technologies.
   <% end %>
