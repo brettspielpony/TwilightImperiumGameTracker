@@ -1,19 +1,24 @@
-<h2><%= t("factions.#{@player.faction}") %></h2>
+<div class="faction-title">
+  <%= image_tag_for_faction(@player.faction) %>
+  <h2><%= faction_name(@player.faction) %></h2>
+</div>
+
 <p>Played by <%= @player.name %></p>
 
 <% if @current_game.active? && @current_game.current_round.action_phase? %>
   <section class="mb-s">
     <h2>Score Objectives</h2>
-    <ul>
     <% @current_game.revealed_objectives.each do |objective| %>
-      <li>
-        <strong><%= objective.title %> (<%= t("stages.#{objective.stage}") %>)</strong>
-        <% if @player.scored_objective?(objective) %>
-          ✓
-        <% else %>
-          [<%= link_to "Score!", game_player_objective_score_path(@current_game, @player, objective.key), method: :post %>]
-        <% end %>
-      </li>
+      <div class="player-objective <%= @player.scored_objective?(objective) ? "player-objective--scored" : "" %>">
+        <%= render objective %>
+        <div class="player-objective-actions">
+          <% if @player.scored_objective?(objective) %>
+            [<%= link_to "undo?", "#" %>]
+          <% else %>
+            [<%= link_to "score 🚀!", game_player_objective_score_path(@current_game, @player, objective.key), method: :post %>]
+          <% end %>
+        </div>
+      </div>
     <% end %>
   </section>
 <% end %>
@@ -21,13 +26,16 @@
 <section class="mb-l">
   <h3>Technologies</h3>
   <% if @player.technologies.any? %>
-    <ul>
-      <% @player.technologies.each do |technology| %>
-        <li>
-          <%= link_to technology.title, technology_path(technology) %>
-          [<%= link_to "remove", game_player_technology_path(@current_game, @player, technology.key), method: :delete %>]</li>
+    <% @player.technologies.group_by(&:type).each do |tech_type, technologies| %>
+      <% technologies.each do |technology| %>
+        <div class="player-technology">
+          <%= render technology %>
+          <div class="player-technology-actions">
+            [<%= link_to "undo?", game_player_technology_path(@current_game, @player, technology.key), method: :delete %>]
+          </div>
+        </div>
       <% end %>
-    </ul>
+    <% end %>
   <% else %>
     No technologies yet. Add starting Technologies.
   <% end %>

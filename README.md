@@ -24,6 +24,7 @@
 * [Contributing](#contributing)
 * [License](#license)
 * [Disclaimer](#disclaimer)
+* [Credits](#credits)
 
 ## About The Project
 
@@ -51,3 +52,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## Disclaimer
 
 This project has not been officially approved or is any other way associated with Fantasy Flight Games. [Twilight Imperium Fourth Edition](https://www.fantasyflightgames.com/en/products/twilight-imperium-fourth-edition/) is a board game created and owned by Fantasy Flight Games. All copyright belongs to [Fantasy Flight Games](https://www.fantasyflightgames.com/en/index/).
+
+## Credits
+
+Not all the provided content was created by us, but we used some of the great content already out there:
+
+* Icons for tech, factions and objectives by [Polarstern](https://boardgamegeek.com/user/Polarstern) from BGG.

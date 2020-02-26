@@ -39,13 +39,9 @@
 
   <% if @game.revealed_objectives.any? %>
     <h2>Revealed Objectives</h2>
-    <ul>
     <% @game.revealed_objectives.each do |objective| %>
-      <li>
-        <strong><%= objective.title %> (<%= t("stages.#{objective.stage}") %>)</strong>
-      </li>
+      <%= render objective %>
     <% end %>
-    </ul>
   <% end %>
 </section>
 
