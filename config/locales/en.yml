@@ -54,6 +54,42 @@ en:
       title: Imperial
       description: A player might choose this card to score victory points early, or to draw an additional secret objective, granting them additional routes to victory.
   technologies:
+    war_sun:
+      title: War Sun
+      color: unit
+      requires: Y/R/R/R
+    cruiser_2:
+      title: Cruiser 2
+      color: unit
+      requires: G/Y/R
+    dreadnaught_2:
+      title: Dreadnaught 2
+      color: unit
+      requires: B/B/Y
+    destroyer_2:
+      title: Destroyer 2
+      color: unit
+      requires: R/R
+    pds_2:
+      title: PDS 2
+      color: unit
+      requires: Y/R
+    carrier_2:
+      title: Carrier 2
+      color: unit
+      requires: B/B
+    fighter_2:
+      title: Fighter 2
+      color: unit
+      requires: G/B
+    infantry_2:
+      title: Infantry 2
+      color: unit
+      requires: G/G
+    space_dock_2:
+      title: Space Dock 2
+      color: unit
+      requires: Y/Y
     light_wave_deflector:
       title: Light/Wave Deflector
       color: B
@@ -188,7 +224,7 @@ en:
       requires: B/B
     hybrid_crystal_fighter_2:
       title: Hybrid Crystal Fighter 2
-      color:
+      color: unit
       requires: G/B
     neuroglaive:
       title: Neuroglaive
@@ -196,7 +232,7 @@ en:
       requires: G/G/G
     super_dreadnuaght_2:
       title: Super Dreadnuaght 2
-      color:
+      color: unit
       requires: B/B/Y
     inheritance_systems:
       title: Inheritance Systems
@@ -212,7 +248,7 @@ en:
       requires: G/G
     exotrireme_2:
       title: Exotrireme 2
-      color:
+      color: unit
       requires: B/B/Y
     valkyrie_particle_weave:
       title: Valkyrie Particle Weave
@@ -220,7 +256,7 @@ en:
       requires: R/R
     prototype_war_sun_2:
       title: Prototype War Sun 2
-      color:
+      color: unit
       requires: Y/R/R/R
     magmus_reactor:
       title: Magmus Reactor
@@ -240,7 +276,7 @@ en:
       requires: B/B
     dimensional_splicer:
       title: Dimensional Splicer
-      color:
+      color: R
       requires: R
     instinct_training:
       title: Instinct Training
