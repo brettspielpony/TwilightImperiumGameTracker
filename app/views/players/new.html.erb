@@ -6,7 +6,7 @@
   <%= f.label :faction %>
   <%= f.collection_select :faction, available_factions_for_game(@current_game), :first, :last %>
   <%= f.label :seat_number %>
-  <%= f.select :seat_number, 1.upto(6).map { |seat| [seat, seat] }, disabled: seats_taken_in_game(@current_game) %>
+  <%= f.select :seat_number, 1.upto(6).map { |seat| [seat, seat] }, disabled: seats_taken_in_game(@current_game), include_blank: true %>
 
   <%= f.submit %>
 <% end %>
