@@ -5,7 +5,7 @@
 
 <p>Played by <%= @player.name %></p>
 
-<% if @current_game.active? && @current_game.current_round.action_phase? %>
+<% if @current_game.active? && (@current_game.current_round.action_phase? || @current_game.current_round.status_phase?) %>
   <section class="mb-s">
     <h2>Score Objectives</h2>
     <% @current_game.revealed_objectives.each do |objective| %>
