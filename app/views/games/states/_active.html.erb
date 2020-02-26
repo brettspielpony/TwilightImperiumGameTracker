@@ -6,13 +6,18 @@
 
     <%= form_with model: @game, url: start_next_round_game_path(game), method: :post, class: "form-columns" do |f| %>
       <div class="select">
-        <label for="1st_public_objective">Objective</label>
-        <%= f.text_field :public_objectives, name: "game[public_objectives][]", list: "stage_one_objectives", autocomplete: "off" %>
+        <label for="1st_public_objective">Reveal Objective</label>
+        <%= f.text_field :public_objectives, name: "game[public_objectives][]", list: "available_objectives_for_game", autocomplete: "off" %>
       </div>
 
-      <datalist id="stage_one_objectives">
+      <datalist id="available_objectives_for_game">
         <%= options_from_collection_for_select available_objectives_for_game(game), :key, :title %>
       </datalist>
+
+      <div class="select">
+        <label for="speaker">Select Speaker</label>
+        <%= f.select :speaker_id, game.players.map { |p| [p.name, p.id] } %>
+      </div>
 
       <%= f.submit "Start Next Round" %>
     <% end %>

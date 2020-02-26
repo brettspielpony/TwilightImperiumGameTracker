@@ -70,8 +70,8 @@ class Game < ApplicationRecord
     current_round_number + 1
   end
 
-  def create_next_round(revealed_objectives:)
-    round = rounds.build(index: next_round_number)
+  def create_next_round(revealed_objectives:, speaker:)
+    round = rounds.build(index: next_round_number, speaker: speaker)
     round.revealed_objectives = revealed_objectives
     round.save!
 

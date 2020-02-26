@@ -22,6 +22,11 @@
         <%= options_from_collection_for_select PublicObjective.stage_one, :key, :title %>
       </datalist>
 
+      <div class="select">
+        <label for="speaker">Select Speaker</label>
+        <%= f.select :speaker_id, game.players.map { |p| [p.name, p.id] } %>
+      </div>
+
       <%= f.submit "Start Game!", disabled: !game.may_start? %>
     <% end %>
   <% end %>

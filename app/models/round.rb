@@ -2,6 +2,7 @@ class Round < ApplicationRecord
   include AASM
 
   belongs_to :game
+  belongs_to :speaker, class_name: "Player"
   has_many :player_stats, dependent: :destroy
   has_many :player, through: :player_stats
 
