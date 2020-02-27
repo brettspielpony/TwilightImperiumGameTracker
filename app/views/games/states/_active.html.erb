@@ -1,5 +1,5 @@
 <section class="mb-l">
-  <h2>Round <%= game.current_round_number %>: <%= game.current_round.aasm_state %></h2>
+  <h2>Round <%= game.current_round_number %>: <%= t("activerecord.attributes.round.aasm_state.#{game.current_round.aasm_state}") %></h2>
 
   <% if game.current_round.finished? %>
     <h3>Revealed Public Objective from previous Status Phase</h3>

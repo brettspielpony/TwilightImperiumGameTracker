@@ -1,4 +1,16 @@
 en:
+  activerecord:
+    models:
+      round: Round
+    attributes:
+      round:
+        aasm_state:
+          strategy_phase: Strategy Phase
+          action_phase: Action Phase
+          status_phase: Status Phase
+          agenda_phase: Agenda Phase
+          finished: Finished
+
   stages:
     one: Stage 1
     two: Stage 2
