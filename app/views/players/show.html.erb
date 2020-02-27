@@ -1,6 +1,9 @@
 <div class="faction-title">
   <%= image_tag_for_faction(@player.faction) %>
   <h2><%= faction_name(@player.faction) %></h2>
+  <% if @player.owns_castodian? %>
+    <%= image_tag "custodian.png", class: "custodian-token" %>
+  <% end %>
 </div>
 
 <p>Played by <%= @player.name %></p>
@@ -21,6 +24,10 @@
       </div>
     <% end %>
   </section>
+<% end %>
+
+<% if @player.currently_speaker? %>
+  <h3>[Currently Speaker]</h3>
 <% end %>
 
 <section class="mb-l">

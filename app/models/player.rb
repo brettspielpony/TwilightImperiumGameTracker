@@ -13,4 +13,12 @@ class Player < ApplicationRecord
   def scored_objective?(objective)
     player_stats.any? { |player_stat| player_stat.scored_public_objectives.include?(objective) }
   end
+
+  def owns_castodian?
+    game.custodian_owner == self
+  end
+
+  def currently_speaker?
+    game.current_round.speaker == self
+  end
 end
