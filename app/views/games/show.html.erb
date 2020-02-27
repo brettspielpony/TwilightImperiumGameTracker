@@ -17,6 +17,9 @@
           <% if @game.custodian_taken? && @game.custodian_owner == player %>
             [Custodian]
           <% end %>
+          <% if @game.current_round.speaker == player %>
+            [Speaker]
+          <% end %>
         </div>
       <% end %>
     <% end %>
