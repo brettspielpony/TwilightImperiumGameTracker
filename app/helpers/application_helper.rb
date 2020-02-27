@@ -4,8 +4,9 @@ module ApplicationHelper
     I18n.t("factions").to_a.reject { |(faction_key, _faction_name)| selected_factions.include?(faction_key.to_s) }
   end
 
-  def seats_taken_in_game(game)
-    game.players.pluck(:seat_number).compact
+  def available_seats_for_game(game)
+    seats_taken_in_game = game.players.pluck(:seat_number).compact
+    1.upto(6).reject { |seat_number| seat_number.in?(seats_taken_in_game) }.map { |seat| [seat, seat] }
   end
 
   def available_tech_for_player(player)
