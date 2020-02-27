@@ -59,11 +59,11 @@ class Game < ApplicationRecord
   end
 
   def current_round
-    rounds.order(index: :asc).last
+    rounds.order(number: :asc).last
   end
 
   def current_round_number
-    current_round&.index || 0
+    current_round&.number || 0
   end
 
   def next_round_number
@@ -71,11 +71,10 @@ class Game < ApplicationRecord
   end
 
   def create_next_round(revealed_objectives:)
-    round = rounds.build(index: next_round_number)
+    round = rounds.build(number: next_round_number)
     round.revealed_objectives = revealed_objectives
-    round.save!
-
-    start! if preparing?
+    start! if preparing? if round.save
+    round
   end
 
   def to_param

@@ -9,6 +9,8 @@ class Round < ApplicationRecord
 
   before_create :set_started_at
 
+  validate :revealed_objectives_must_be_sufficient
+
   aasm do
     state :strategy_phase, initial: true
     state :action_phase
@@ -29,6 +31,38 @@ class Round < ApplicationRecord
   end
 
   private
+
+  def revealed_objectives_must_be_sufficient
+    if number == 1
+      validate_objectives_for_first_round
+    else
+      validate_objectives_for_subsequent_rounds
+    end
+  end
+
+  def validate_objectives_for_first_round
+    return if has_expected_number_of_objectives? && different_objectives_picked?
+
+    errors.add(:base, "You must select two different public objectives.")
+  end
+
+  def validate_objectives_for_subsequent_rounds
+    return if has_expected_number_of_objectives?
+
+    errors.add(:base, "You must select one public objective.")
+  end
+
+  def has_expected_number_of_objectives?
+    revealed_objectives.compact.count == required_number_of_revealed_objectives
+  end
+
+  def different_objectives_picked?
+    revealed_objectives.first != revealed_objectives.last
+  end
+
+  def required_number_of_revealed_objectives
+    number == 1 ? 2 : 1
+  end
 
   def set_started_at
     self.started_at = Time.zone.now

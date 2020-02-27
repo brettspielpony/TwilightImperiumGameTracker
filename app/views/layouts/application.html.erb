@@ -29,6 +29,16 @@
     </header>
 
     <main>
+      <% flash.each do |_type, msg| %>
+        <ul class="alert-messages">
+        <% msg.split("\n").each do |line| %>
+          <li>
+            <%= line %>
+          </li>
+        <% end %>
+        </ul>
+      <% end %>
+
       <%= yield %>
     </main>
 

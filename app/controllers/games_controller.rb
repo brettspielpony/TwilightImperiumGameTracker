@@ -34,7 +34,10 @@ class GamesController < ApplicationController
   def start_next_round
     game = find_game
     objectives_for_round = public_objectives_params[:public_objectives].map { |key| PublicObjective.find_by_key(key) }
-    game.create_next_round(revealed_objectives: objectives_for_round)
+    round = game.create_next_round(revealed_objectives: objectives_for_round)
+    if !round.valid?
+      flash[:alert] = round.errors.full_messages.join("\n")
+    end
 
     redirect_to game
   end

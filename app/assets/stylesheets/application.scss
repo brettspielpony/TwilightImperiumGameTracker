@@ -82,6 +82,14 @@ input[type=range].player-score-slider {
   width: 100%;
 }
 
+ul.alert-messages {
+  background: var(--highlight);
+  color: black;
+  list-style-type: none;
+  margin: 1rem 0;
+  padding: 1rem;
+}
+
 .mb-s {
   margin-bottom: 1rem;
 }
