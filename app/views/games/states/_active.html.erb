@@ -1,12 +1,12 @@
 <section class="mb-l">
-  <h2>Round <%= game.current_round_number %>: <%= game.current_round.aasm_state %></h2>
+  <h2>Round <%= game.current_round_number %>: <%= t("activerecord.attributes.round.aasm_state.#{game.current_round.aasm_state}") %></h2>
 
   <% if game.current_round.finished? %>
-    <h3>Reveal next public objective</h3>
+    <h3>Revealed Public Objective from previous Status Phase</h3>
 
     <%= form_with model: @game, url: start_next_round_game_path(game), method: :post, class: "form-columns" do |f| %>
       <div class="select">
-        <label for="1st_public_objective">Reveal Objective</label>
+        <label for="1st_public_objective">Objective</label>
         <%= f.text_field :public_objectives, name: "game[public_objectives][]", list: "stage_one_objectives", autocomplete: "off" %>
       </div>
 

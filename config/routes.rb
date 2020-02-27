@@ -19,6 +19,8 @@ Rails.application.routes.draw do
       member do
         post :pick_strategy_cards
         post :finish_action_phase
+        post :finish_status_phase
+        post :finish_agenda_phase
       end
     end
   end
