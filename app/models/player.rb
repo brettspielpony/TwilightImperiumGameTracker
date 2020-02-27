@@ -7,6 +7,7 @@ class Player < ApplicationRecord
 
   validates :name, presence: true
   validates :faction, presence: true
+  validates :seat_number, presence: true
 
   attribute :technologies, :value_object, default: []
 
