@@ -113,6 +113,8 @@ summary {
 
 .faction-title {
   display: flex;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .faction-icon {
@@ -185,4 +187,9 @@ summary {
   font-family: 'Slider';
   font-size: 110%;
   line-height: 2;
+}
+
+.custodian-token {
+  width: 64px;
+  height: 64px;
 }
