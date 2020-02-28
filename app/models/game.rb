@@ -54,6 +54,10 @@ class Game < ApplicationRecord
     @revealed_objectives ||= rounds.flat_map(&:revealed_objectives)
   end
 
+  def revealed_agenda_cards
+    @revealed_agenda_cards ||= rounds.flat_map(&:revealed_agenda_cards)
+  end
+
   def custodian_taken?
     custodian_owner.present?
   end
