@@ -22,7 +22,7 @@ module ApplicationHelper
   end
 
   def available_agenda_cards_for_game(game)
-    AgendaCard.all
+    (AgendaCard.all - game.revealed_agenda_cards)
   end
 
   def image_tag_for_technology(technology)
