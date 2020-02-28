@@ -14,12 +14,12 @@
           <% end %>
           <% if @game.active? && @game.current_round.action_phase? %>
             <strong><%= @game.current_round.player_stats.find_by(player: player).strategy_card %></strong>
-          <% end %>
-          <% if player.owns_castodian? %>
-            [Custodian]
-          <% end %>
-          <% if player.currently_speaker? %>
-            [Speaker]
+            <% if player.owns_castodian? %>
+              [Custodian]
+            <% end %>
+            <% if player.currently_speaker? %>
+              [Speaker]
+            <% end %>
           <% end %>
         </div>
       <% end %>
