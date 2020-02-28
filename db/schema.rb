@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 2020_02_29_093757) do
     t.string "aasm_state", default: "strategy_phase", null: false
     t.jsonb "revealed_objectives", default: [], null: false
     t.integer "speaker_id", null: false
+    t.jsonb "revealed_agenda_cards", default: [], null: false
     t.index ["game_id"], name: "index_rounds_on_game_id"
   end
 
