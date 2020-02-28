@@ -22,7 +22,6 @@ module ApplicationHelper
   end
 
   def image_tag_for_technology(technology)
-    # raise technology.type.to_s.inspect
     image_tag "tech_icon_#{technology.type.to_s}.png", class: "technology-icon"
   end
 
