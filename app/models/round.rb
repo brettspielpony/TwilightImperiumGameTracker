@@ -7,6 +7,7 @@ class Round < ApplicationRecord
   has_many :player, through: :player_stats
 
   attribute :revealed_objectives, :value_object, default: []
+  attribute :revealed_agenda_cards, :value_object, default: []
 
   before_create :set_started_at
 

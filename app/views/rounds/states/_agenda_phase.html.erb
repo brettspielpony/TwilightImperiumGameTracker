@@ -6,6 +6,33 @@
   </ol>
 </section>
 
+<section class="mb-s">
+  <% if round.revealed_agenda_cards.blank? %>
+    <h3>Reveal two Agenda Cards</h3>
+    <%= form_with model: round, url: pick_agenda_cards_game_round_path(game, round), method: :post, class: "form-columns" do |f| %>
+      <div class="select">
+        <label for="first_agenda">First Agenda</label>
+        <%= text_field_tag :"round[agenda_cards][]", "", list: "agenda_cards", required: true, autocomplete: "off", id: "first_agenda" %>
+      </div>
+      <div class="select">
+        <label for="second_agenda">Second Agenda</label>
+        <%= text_field_tag :"round[agenda_cards][]", "", list: "agenda_cards", required: true, autocomplete: "off", id: "second_agenda" %>
+      </div>
+
+      <datalist id="agenda_cards">
+        <%= options_from_collection_for_select available_agenda_cards_for_game(game), :key, :title %>
+      </datalist>
+
+      <%= f.submit "Save Agenda Cards" %>
+    <% end %>
+  <% else %>
+    <h3>Revealed Agenda Cards</h3>
+    <% round.revealed_agenda_cards.each do |agenda_card| %>
+      <%= render agenda_card %>
+    <% end %>
+  <% end %>
+</section>
+
 <section class="mb-l">
   <%= button_to "Finish Round", finish_agenda_phase_game_round_path(game, round) %>
 </section>

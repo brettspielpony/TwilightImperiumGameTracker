@@ -21,6 +21,10 @@ module ApplicationHelper
     (PublicObjective.all - game.revealed_objectives)
   end
 
+  def available_agenda_cards_for_game(game)
+    AgendaCard.all
+  end
+
   def image_tag_for_technology(technology)
     image_tag "tech_icon_#{technology.type.to_s}.png", class: "technology-icon"
   end
