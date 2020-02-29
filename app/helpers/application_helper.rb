@@ -1,7 +1,7 @@
 module ApplicationHelper
   def available_factions_for_game(game)
     selected_factions = game.players.map(&:faction)
-    I18n.t("factions").to_a.reject { |(faction_key, _faction_name)| selected_factions.include?(faction_key.to_s) }
+    I18n.t("factions").map { |(key, details)| [key, faction_name(key)] }.reject { |(key, _faction_name)| selected_factions.include?(key.to_s) }
   end
 
   def available_seats_for_game(game)
@@ -38,6 +38,6 @@ module ApplicationHelper
   end
 
   def faction_name(faction)
-    I18n.t("factions.#{faction}")
+    I18n.t("factions.#{faction}.title")
   end
 end
