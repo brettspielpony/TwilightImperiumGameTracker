@@ -30,6 +30,12 @@
     <% round.revealed_agenda_cards.each do |agenda_card| %>
       <%= render agenda_card %>
     <% end %>
+
+    <h3>Reveal additional Public Objective</h3>
+    <%= form_with model: round, url: reveal_objective_game_round_path(game, round), method: :post, class: "form-columns form-slim" do |f| %>
+      <%= render "games/form/select_objective", form: f, game: game, objectives: available_public_objectives_for_game(game) %>
+     <%= f.submit "Reveal" %>
+    <% end %>
   <% end %>
 </section>
 

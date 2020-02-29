@@ -39,6 +39,16 @@ class RoundsController < ApplicationController
     redirect_to @current_game
   end
 
+  def reveal_objective
+    round = find_round
+    params[:game][:public_objectives].each do |key|
+      round.revealed_objectives << PublicObjective.find_by_key(key)
+    end
+    round.save!
+
+    redirect_to @current_game
+  end
+
   def finish_agenda_phase
     round = find_round
     round.finish!
