@@ -518,3 +518,304 @@ en:
       title: Threaten Enemies
       description: Have 1 or more ships in a system that is adjacent to another player's home system
       phase: status
+  agenda_cards:
+    anti_intellectual_revolution:
+      title: Anti-Intellectual Revolution
+      elect:
+      for: After a player researches a technology, they must destroy one of their non-fighter ships.
+      against: At the start of the next strategy phase each player exhausts one planet for each technology they have researched.
+      type: law
+    classified_document_leaks:
+      title: Classified Document Leaks
+      elect: Scored Secret Objective
+      for: The elected secret objective becomes a public objective.
+      against:
+      type: law
+    committee_formation:
+      title: Committee Formation
+      elect: Player
+      for: This card may be discarded during a future agenda to choose a player to be elected for an agenda, bypassing the voting process. 
+      against:
+      type: law
+    conventions_of_war:
+      title: Conventions of War
+      elect:
+      for: Players cannot use Bombardment against cultural planets.
+      against: Players who voted "Against" discard all of their action cards.
+      type: law
+    core_mining:
+      title: Core Mining
+      elect: Hazardous Planet
+      for: Destroy 1 infantry on that planet. It resource value is increased by 2. 
+      against:
+      type: law
+    demilitarized_zone:
+      title: Demilitarized Zone
+      elect: Cultural Planet
+      for: Destroy all units on that planet. Player's units cannot land, be produced on or be placed on this planet.
+      against:
+      type: law
+    enforced_travel_ban:
+      title: Enforced Travel Ban
+      elect:
+      for: Players cannot use alpha or beta wormholes.
+      against: Destroy each PDS in/adjacent to a wormhole.
+      type: law
+    executive_sanctions:
+      title: Executive Sanctions
+      elect:
+      for: All players have a maximum of 3 action cards in hand.
+      against: Each player discards a random action card.
+      type: law
+    fleet_regulations:
+      title: Fleet Regulations
+      elect:
+      for: Each player cannot have more than 4 tokens in their fleet pool.
+      against: Each player gains 1 command token into their fleet pool.
+      type: law
+    holy_planet_of_ixth:
+      title: Holy Planet of Ixth
+      elect: Cultural Planet
+      for: The planet's controller gains 1VP. Units on this planet cannot use Production.
+      against:
+      type: law
+    homeland_defense_act:
+      title: Homeland Defense Act
+      elect:
+      for: Each player can have any number of PDS on planets they control.
+      against: Each player destroys one PDS.
+      type: law
+    imperial_arbiter:
+      title: Imperial Arbiter
+      elect: Player
+      for: At the end of the strategy phase this card may be discarded to swap one of this player's strategy cards with 1 of another player's strategy cards.
+      against:
+      type: law
+    minister_of_commerce:
+      title: Minister of Commerce
+      elect: Player
+      for: After the owner of this card replenishes commodities, they gain a trade good for each player that is their neighbor.
+      against:
+      type: law
+    minister_of_exploration:
+      title: Minister of Exploration
+      elect: Player
+      for: When the owner of this cards gains control of a planet, they gain a trade good.
+      against:
+      type: law
+    minister_of_industry:
+      title: Minister of Industry
+      elect: Player
+      for: When the owner of this card places a space dock in a system, their units in that system use Production abilities.
+      against:
+      type: law
+    minister_of_peace:
+      title: Minister of Peace
+      elect: Player
+      for: After a player activates a system that contains 1 or more of a different player's units, the owner of this card may discard it to immediately end the active player's turn.
+      against:
+      type: law
+    minister_of_policy:
+      title: Minister of Policy
+      elect: Player
+      for: The owner draws an extra action card during the status phase. 
+      against:
+      type: law
+    minister_of_sciences:
+      title: Minister of Sciences
+      elect: Player
+      for: When the owner of this card resolves the primary or secondary ability of the Technology Strategy card, they do not need to spend resources.
+      against:
+      type: law
+    minister_of_war:
+      title: Minister of War
+      elect: Player
+      for: The owner of this card may discard this card after performing an action to remove one of their command tokens on the board. Then, they may perform an additional action.
+      against:
+      type: law
+    prophecy_of_ixth:
+      title: Prophecy of Ixth
+      elect: Player
+      for: The owner of this card applies +1 to their fighter's combat rolls. When the owner of this card uses a Production ability they discard this card unless they produce at least 2 fighters.
+      against:
+      type: law
+    publicize_weapon_schematics:
+      title: Publicize Weapon Schematics
+      elect:
+      for: If a player has Warsun technology all players may ignore that technology's prerequisites. All warsuns lose sustain damage.
+      against: Each player with war sun technology discards all of their action cards.
+      type: law
+    regulated_conscription:
+      title: Regulated Conscription
+      elect:
+      for: Each fighter or infantry requires 1 resource instead of 1/2 of a resource to produce.
+      against:
+      type: law
+    representative_government:
+      title: Representative Government
+      elect:
+      for: Players cannot exhaust planets to cast votes during the agenda phase. Each player may cast 1 vote on each agenda.
+      against: At the start of the next strategy phase, each player that voted "Against" exhausts all of his cultural planets.
+      type: law
+    research_team_biotic:
+      title: "Research Team: Biotic"
+      elect: Industrial Planet
+      for: When this planet's owner researches technology they may exhaust this card to ignore a green prerequisite.
+      against:
+      type: law
+    research_team_cybernetic:
+      title: "Research Team: Cybernetic"
+      elect: Industrial Planet
+      for: When this planet's owner researches technology they may exhaust this card to ignore a yellow prerequisite.
+      against:
+      type: law
+    research_team_propulsion:
+      title: "Research Team: Propulsion"
+      elect: Industrial Planet
+      for: When this planet's owner researches technology they may exhaust this card to ignore a blue prerequisite.
+      against:
+      type: law
+    research_team_warfare:
+      title: "Research Team: Warfare"
+      elect: Hazardous Planet
+      for: When this planet's owner researches technology they may exhaust this card to ignore a red prerequisite. 
+      against:
+      type: law
+    senate_sanctuary:
+      title: Senate Sanctuary
+      elect: Cultural Planet
+      for: The influence value of this planet is increased by 2.
+      against:
+      type: law
+    shard_of_the_throne:
+      title: Shard of the Throne
+      elect: Player
+      for: This card is worth 1VP. If a player wins a combat against the player that has this card, they gain this card.
+      against:
+      type: law
+    shared_research:
+      title: Shared Research
+      elect:
+      for: Units can move through nebulae.
+      against: Each player places a command token in their home system
+      type: law
+    terraforming_initiative:
+      title: Terraforming Initiative
+      elect: Hazardous Planet
+      for: The influence and resource values of this planet are each increased by 1.
+      against:
+      type: law
+    the_crown_of_emphidia:
+      title: The Crown of Emphidia
+      elect: Player
+      for: This card is worth 1VP. If a player gains control of a planet in this player's home system they gain this card.
+      against:
+      type: law
+    the_crown_of_thalnos:
+      title: The Crown of Thalnos
+      elect: Player
+      for: During each round this card's owner may reroll any number of his dice. Any units that reroll but do not produce a hit are destroyed.
+      against:
+      type: law
+    wormhole_reconstruction:
+      title: Wormhole Reconstruction
+      elect:
+      for: Systems that contain an alpha or beta wormhole are adjacent to each other.
+      against: Each player places a command token in each system with one of their ships and either an alpha or beta wormhole.
+      type: law
+    archived_secret:
+      title: Archived Secret
+      elect: Player
+      for: Elected player draws 1 secret objective.
+      against:
+      type: directive
+    arms_reduction:
+      title: Arms Reduction
+      elect:
+      for: Each player destroys all but 2 of their dreadnaughts and all but 4 of their cruisers.
+      against: At the start of the next strategy phase, each player exhausts each of their planets with a technology specialty.
+      type: directive
+    colonial_redistribution:
+      title: Colonial Redistribution
+      elect: Non-home, non-Mecatol Rex system
+      for: Destroy each unit on the planet. It's controller chooses a player with the fewest victory points to place 1 infantry on the planet.
+      against:
+      type: directive
+    compensated_disarmament:
+      title: Compensated Disarmament
+      elect: Planet
+      for: Destroy each ground force on the planet. For each unit destroyed, the player who controls that planet gains 1 trade good. 
+      against:
+      type: directive
+    economic_equality:
+      title: Economic Equality
+      elect:
+      for: All players discard all trade goods, then draw 5.
+      against: All players discard all trade goods.
+      type: directive
+    incentive_program:
+      title: Incentive Program
+      elect:
+      for: Draw and reveal an additional stage 1 public objective.
+      against: Draw and reveal an additional stage 2 public objective.
+      type: directive
+    ixthian_artifact:
+      title: Ixthian Artifact
+      elect:
+      for: "The speaker rolls a die. 1-5: Destroy all units on Mecatol Rex & 3 units in each system adjacent to Mecatol Rex. 6-10: Each player researches 2 technologies."
+      against:
+      type: directive
+    judicial_abolishment:
+      title: Judicial Abolishment
+      elect: Law
+      for: Discard elected law.
+      against:
+      type: directive
+    miscount_disclosed:
+      title: Miscount Disclosed
+      elect: Law
+      for: Vote on that law again, as if it was revealed.
+      against:
+      type: directive
+    mutiny:
+      title: Mutiny
+      elect:
+      for: Each player who voted "For" gains 1 VP.
+      against: Each player who voted "For" loses 1 VP.
+      type: directive
+    new_constitution:
+      title: New Constitution
+      elect:
+      for: Discard all laws in play. Exhaust all home systems next strategy phase.
+      against:
+      type: directive
+    public_execution:
+      title: Public Execution
+      elect: Player
+      for: Elected player discards all action cards. If they have the speaker token, they pass it to the player on their left. They cannot vote on further agendas during this agenda phase.
+      against:
+      type: directive
+    seed_of_an_empire:
+      title: Seed of an Empire
+      elect:
+      for: The player with most VP gains 1 VP.
+      against: The player with the fewest VP gains 1 VP.
+      type: directive
+    swords_to_plowshares:
+      title: Swords to Plowshares
+      elect:
+      for: Each player destroys half of their infantry (rounded up) on each planet.  Each player gains a trade good for each unit they destroyed.
+      against: Each player gains 1 infantry on each planet they control.
+      type: directive
+    unconventional_measures:
+      title: Unconventional Measures
+      elect:
+      for: Each player that voted "For" draws 2 action cards.
+      against: Each player that voted "For" discards all of their action cards.
+      type: directive
+    wormhole_research:
+      title: Wormhole Research
+      elect:
+      for: Each player with a ship in a system with an alpha or beta wormhole destroys all his ships in those systems, then researches a technology.
+      against: Each player who voted "Against" removes a command token from his command sheet.
+      type: directive

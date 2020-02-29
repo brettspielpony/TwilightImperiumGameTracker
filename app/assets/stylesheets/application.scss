@@ -193,3 +193,21 @@ summary {
   width: 64px;
   height: 64px;
 }
+
+.agenda-card {
+  border: 1px var(--focus) solid;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  max-width: 360px;
+}
+
+.agenda-card-title {
+  background: var(--focus);
+  border-bottom: 1px var(--focus) solid;
+  font-family: 'Slider';
+  padding: 1rem;
+}
+
+.agenda-card-description {
+  padding: 1rem;
+}

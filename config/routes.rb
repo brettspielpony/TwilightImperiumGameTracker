@@ -20,6 +20,7 @@ Rails.application.routes.draw do
         post :pick_strategy_cards
         post :finish_action_phase
         post :finish_status_phase
+        post :pick_agenda_cards
         post :finish_agenda_phase
       end
     end
