@@ -30,6 +30,15 @@ class RoundsController < ApplicationController
     redirect_to @current_game
   end
 
+  def pick_agenda_cards
+    round = find_round
+    agenda_cards = params[:round][:agenda_cards].map { |key| AgendaCard.find_by_key(key) }
+    round.revealed_agenda_cards = agenda_cards
+    round.save!
+
+    redirect_to @current_game
+  end
+
   def finish_agenda_phase
     round = find_round
     round.finish!

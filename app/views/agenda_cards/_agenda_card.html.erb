@@ -1,0 +1,13 @@
+<div class="agenda-card">
+  <div class="agenda-card-title"><%= agenda_card.type.capitalize %>: <%= agenda_card.title %></div>
+  <div class="agenda-card-description">
+
+  <% if agenda_card.elect.present? %>
+    <strong>Elect</strong>: <%= agenda_card.elect %><br/>
+    <%= agenda_card.for %></div>
+  <% else %>
+    <strong>For</strong>: <%= agenda_card.for %></br>
+    <strong>Against</strong>: <%= agenda_card.against %>
+  <% end %>
+  </div>
+</div>

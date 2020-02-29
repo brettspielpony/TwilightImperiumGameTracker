@@ -38,7 +38,7 @@
 <% end %>
 
 <section>
-  <h2>Faction and Objectives Overview</h2>
+  <h2>Overview</h2>
 
   <details>
     <summary>Factions Overview</summary>
@@ -82,6 +82,13 @@
     <summary>Technologies</summary>
     <% Technology.all.each do |technology| %>
       <%= render technology %>
+    <% end %>
+  </details>
+
+  <details>
+    <summary>Agenda Cards</summary>
+    <% AgendaCard.all.each do |agenda_card| %>
+      <%= render agenda_card %>
     <% end %>
   </details>
 </section>

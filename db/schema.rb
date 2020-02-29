@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_26_211204) do
+ActiveRecord::Schema.define(version: 2020_02_28_204859) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 2020_02_26_211204) do
     t.string "aasm_state", default: "strategy_phase", null: false
     t.jsonb "revealed_objectives", default: [], null: false
     t.integer "speaker_id", null: false
+    t.jsonb "revealed_agenda_cards", default: [], null: false
     t.index ["game_id"], name: "index_rounds_on_game_id"
   end
 
