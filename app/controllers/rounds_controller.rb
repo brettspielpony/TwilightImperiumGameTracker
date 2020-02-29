@@ -3,10 +3,10 @@ class RoundsController < ApplicationController
 
   def pick_strategy_cards
     round = find_round
-    players_and_picks = params[:round][:strategy_card_picks].permit!.to_h.each do |(player_id, strategy_card_key)|
-      round.player_stats.create!(player: @current_game.players.find(player_id), strategy_card: strategy_card_key)
+    players_and_picks = params[:round][:strategy_card_picks].permit!.to_h.each do |(player_id, strategy_card_keys)|
+      strategy_cards = strategy_card_keys.map { |key| StrategyCard.find_by_key(key) }
+      round.player_stats.create!(player: @current_game.players.find(player_id), picked_strategy_cards: strategy_cards)
     end
-
     round.start_action_phase!
 
     redirect_to @current_game
