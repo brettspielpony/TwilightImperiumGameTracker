@@ -40,9 +40,9 @@ class GamesController < ApplicationController
     redirect_to game
   end
 
-  def reset_current_round
+  def restart_current_round
     game = find_game
-    game.reset_current_round
+    game.restart_current_round
 
     redirect_to game
   end

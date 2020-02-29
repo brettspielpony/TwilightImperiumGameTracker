@@ -53,7 +53,7 @@
 
 <section>
   <% if @game.current_round %>
-    <%= button_to "Reset round", reset_current_round_game_path(@game), data: { confirm: "Sure?" } %>
+    <%= button_to "Restart round", restart_current_round_game_path(@game), data: { confirm: "Sure?" } %>
   <% end %>
 
   <% if @game.may_close? %>
