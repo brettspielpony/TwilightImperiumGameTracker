@@ -40,6 +40,10 @@ class Game < ApplicationRecord
     event :start do
       transitions from: %i[preparing], to: :active, guard: :ready_to_start?
     end
+
+    event :restart do
+      transitions from: :active, to: :preparing, guard: :no_more_rounds?
+    end
   end
 
   def playtime
@@ -68,6 +72,11 @@ class Game < ApplicationRecord
 
   def current_round_number
     current_round&.index || 0
+  end
+
+  def restart_current_round
+    current_round&.destroy
+    restart! if may_restart?
   end
 
   def next_round_number
@@ -99,6 +108,10 @@ class Game < ApplicationRecord
   end
 
   private
+
+  def no_more_rounds?
+    rounds.none?
+  end
 
   def ready_to_start?
     enough_players?
