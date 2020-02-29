@@ -8,24 +8,9 @@
   <% else %>
     <h2>Reveal first two stage 1 objectives</h2>
     <%= form_with model: game, url: start_next_round_game_path(game), method: :post, class: "form-columns" do |f| %>
-      <div class="select">
-        <label for="1st_public_objective">1st Public Objective</label>
-        <%= f.text_field :public_objectives, name: "game[public_objectives][]", list: "stage_one_objectives", autocomplete: "off" %>
-      </div>
-
-      <div class="select">
-        <label for="2nd_public_objective">2nd Public Objective</label>
-        <%= f.text_field :public_objectives, name: "game[public_objectives][]", list: "stage_one_objectives", autocomplete: "off" %>
-      </div>
-
-      <datalist id="stage_one_objectives">
-        <%= options_from_collection_for_select PublicObjective.stage_one, :key, :title %>
-      </datalist>
-
-      <div class="select">
-        <label for="speaker">Select Speaker</label>
-        <%= f.select :speaker_id, game.players.map { |p| [p.name, p.id] } %>
-      </div>
+      <%= render "games/form/select_objective", form: f, game: game, objectives: PublicObjective.stage_one %>
+      <%= render "games/form/select_objective", form: f, game: game, objectives: PublicObjective.stage_one %>
+      <%= render "games/form/select_speaker", form: f, game: game %>
 
       <%= f.submit "Start Game!", disabled: !game.may_start? %>
     <% end %>
