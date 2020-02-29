@@ -1,0 +1,4 @@
+<div class="select">
+  <label for="speaker">Select Speaker</label>
+  <%= form.select :speaker_id, game.players.map { |p| [p.name, p.id] }, { include_blank: true }, { required: true } %>
+</div>
