@@ -15,10 +15,8 @@
       <div class="player-objective <%= @player.scored_objective?(objective) ? "player-objective--scored" : "" %>">
         <%= render objective %>
         <div class="player-objective-actions">
-          <% if @player.scored_objective?(objective) %>
-            [<%= link_to "undo?", "#" %>]
-          <% else %>
-            [<%= link_to "score 🚀!", game_player_objective_score_path(@current_game, @player, objective.key), method: :post %>]
+          <% if !@player.scored_objective?(objective) %>
+            [<%= link_to "score 🚀!", score_public_game_player_objectives_path(@current_game, @player, objective_key: objective.key), method: :post %>]
           <% end %>
         </div>
       </div>
