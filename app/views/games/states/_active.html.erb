@@ -5,19 +5,8 @@
     <h3>Revealed Public Objective from previous Status Phase</h3>
 
     <%= form_with model: @game, url: start_next_round_game_path(game), method: :post, class: "form-columns" do |f| %>
-      <div class="select">
-        <label for="1st_public_objective">Reveal Objective</label>
-        <%= f.text_field :public_objectives, name: "game[public_objectives][]", list: "available_public_objectives", autocomplete: "off" %>
-      </div>
-
-      <datalist id="available_public_objectives">
-        <%= options_from_collection_for_select available_public_objectives_for_game(game), :key, :title %>
-      </datalist>
-
-      <div class="select">
-        <label for="speaker">Select Speaker</label>
-        <%= f.select :speaker_id, game.players.map { |p| [p.name, p.id] } %>
-      </div>
+      <%= render "games/form/select_objective", form: f, game: game, objectives: available_objectives_for_game(game) %>
+      <%= render "games/form/select_speaker", form: f, game: game %>
 
       <%= f.submit "Start Next Round" %>
     <% end %>
