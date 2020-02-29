@@ -17,7 +17,11 @@ module ApplicationHelper
     StrategyCard.all.sort_by(&:initiative_order)
   end
 
-  def available_objectives_for_game(game)
+  def available_secret_objectives_for_player(player)
+    (SecretObjective.all - player.scored_secret_objectives)
+  end
+
+  def available_public_objectives_for_game(game)
     (PublicObjective.all - game.revealed_objectives)
   end
 

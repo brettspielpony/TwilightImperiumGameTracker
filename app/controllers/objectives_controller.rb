@@ -1,11 +1,21 @@
 class ObjectivesController < ApplicationController
   before_action :load_current_game
 
-  def score
+  def score_public
     objective = PublicObjective.find_by_key(params[:objective_key])
 
     player_stats = find_player_stats
     player_stats.scored_public_objectives << objective
+    player_stats.save!
+
+    redirect_to game_player_path(@current_game, player_stats.player)
+  end
+
+  def score_secret
+    objective = SecretObjective.find_by_key(params[:objective_key])
+
+    player_stats = find_player_stats
+    player_stats.scored_secret_objectives << objective
     player_stats.save!
 
     redirect_to game_player_path(@current_game, player_stats.player)
