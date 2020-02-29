@@ -90,6 +90,10 @@ class Game < ApplicationRecord
     players.count >= PLAYERS_COUNT_RANGE.max
   end
 
+  def strategy_cards_per_player
+    players.count < 5 ? 2 : 1
+  end
+
   private
 
   def ready_to_start?
