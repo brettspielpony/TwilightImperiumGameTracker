@@ -6,6 +6,14 @@
   </ol>
 </section>
 
+<section class="mb-s">
+  <h3>Reveal additional Public Objective</h3>
+  <%= form_with model: round, url: reveal_objective_game_round_path(game, round), method: :post, class: "form-columns form-slim" do |f| %>
+    <%= render "games/form/select_objective", form: f, game: game, objectives: available_public_objectives_for_game(game) %>
+   <%= f.submit "Reveal" %>
+  <% end %>
+</section>
+
 <section class="mb-l">
   <%= button_to "Finish Round", finish_agenda_phase_game_round_path(game, round) %>
 </section>

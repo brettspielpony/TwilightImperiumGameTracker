@@ -21,6 +21,7 @@ Rails.application.routes.draw do
         post :finish_action_phase
         post :finish_status_phase
         post :finish_agenda_phase
+        post :reveal_objective
       end
     end
   end
