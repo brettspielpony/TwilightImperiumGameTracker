@@ -11,7 +11,10 @@ Rails.application.routes.draw do
     resources :players, only: %i(show new create update destroy) do
       resources :technologies, only: %i(create destroy), param: :key
       resources :objectives, only: [], param: :key do
-        post :score
+        collection do
+          post :score_public
+          post :score_secret
+        end
       end
     end
 
