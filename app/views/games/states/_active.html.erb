@@ -5,7 +5,7 @@
     <h3>Revealed Public Objective from previous Status Phase</h3>
 
     <%= form_with model: @game, url: start_next_round_game_path(game), method: :post, class: "form-columns" do |f| %>
-      <%= render "games/form/select_objective", form: f, game: game, objectives: available_objectives_for_game(game) %>
+      <%= render "games/form/select_objective", form: f, game: game, objectives: available_public_objectives_for_game(game) %>
       <%= render "games/form/select_speaker", form: f, game: game %>
 
       <%= f.submit "Start Next Round" %>
