@@ -2,7 +2,7 @@
   <h1>Create a new game</h1>
 
   <%= form_with model: @game, class: "form-columns" do |f| %>
-    <%= f.text_field :name, placeholder: "Name your Game" %>
+    <%= f.text_field :name, placeholder: "Name your Game", required: true %>
     <%= f.text_field :map, placeholder: "TTS Map String" %>
 
     <div class="select">
