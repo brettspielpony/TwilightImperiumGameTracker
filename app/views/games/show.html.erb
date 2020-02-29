@@ -13,7 +13,9 @@
             [<%= link_to "remove", game_player_path(@game, player), method: :delete, data: { confirm: "Sure?" } %>]
           <% end %>
           <% if @game.active? && @game.current_round.action_phase? %>
-            <strong><%= @game.current_round.player_stats.find_by(player: player).strategy_card %></strong>
+             <% @game.current_round.player_stats.find_by(player: player).picked_strategy_cards.each do |card| %>
+              <strong><%= card.title %></strong>
+            <% end %>
             <% if player.owns_castodian? %>
               [Custodian]
             <% end %>

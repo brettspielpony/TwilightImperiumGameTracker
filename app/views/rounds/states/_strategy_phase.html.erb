@@ -1,10 +1,12 @@
 <section class="mb-l">
   <%= form_with model: round, url: pick_strategy_cards_game_round_path(game, round), method: :post, class: "form-columns" do |f| %>
     <% game.players.each_with_index do |player| %>
-      <div class="select">
-        <label for="strategy_card_<%= player.id %>"><%= player.name %></label>
-        <%= f.collection_select :"strategy_card_picks[#{player.id}]", strategy_cards, :first, :last, {}, { id: "strategy_card_#{player.id}" }%>
-      </div>
+      <% game.strategy_cards_per_player.times do |i| %>
+        <div class="select">
+          <label for="strategy_card_<%= player.id %>_<%= i %>"><%= player.name %></label>
+          <%= select_tag :"round[strategy_card_picks[#{player.id}]][]", options_from_collection_for_select(strategy_cards, :key, :title_for_select), id: "strategy_card_#{player.id}_#{i}" %>
+        </div>
+      <% end %>
     <% end %>
 
     <%= f.submit "Save Picks" %>

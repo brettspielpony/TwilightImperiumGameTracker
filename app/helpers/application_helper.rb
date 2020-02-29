@@ -14,7 +14,7 @@ module ApplicationHelper
   end
 
   def strategy_cards
-    I18n.t("strategy_cards").to_a.map { |(key, details)| [key, "&#1010#{details[:initiative_order].to_i + 1}; #{details[:title]}".html_safe] }.sort_by(&:last)
+    StrategyCard.all.sort_by(&:initiative_order)
   end
 
   def available_objectives_for_game(game)
