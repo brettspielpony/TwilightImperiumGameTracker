@@ -74,7 +74,7 @@ class Game < ApplicationRecord
     current_round&.index || 0
   end
 
-  def reset_current_round
+  def restart_current_round
     current_round&.destroy
     restart! if may_restart?
   end

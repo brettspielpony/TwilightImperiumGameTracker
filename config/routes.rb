@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     member do
       post :close
       post :start_next_round
-      post :reset_current_round
+      post :restart_current_round
     end
 
     resources :players, only: %i(show new create update destroy) do
