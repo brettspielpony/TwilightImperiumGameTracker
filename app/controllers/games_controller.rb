@@ -40,6 +40,13 @@ class GamesController < ApplicationController
     redirect_to game
   end
 
+  def reset_current_round
+    game = find_game
+    game.reset_current_round
+
+    redirect_to game
+  end
+
   private
 
   def update_game_params

@@ -54,7 +54,11 @@
 <%= render "games/states/#{@game.aasm_state}", game: @game %>
 
 <section>
+  <% if @game.current_round %>
+    <%= button_to "Reset round", reset_current_round_game_path(@game), data: { confirm: "Sure?" } %>
+  <% end %>
+
   <% if @game.may_close? %>
     <%= button_to "Close Game", close_game_path(@game), data: { confirm: "Sure?" } %>
   <% end %>
-</section
+</section>
