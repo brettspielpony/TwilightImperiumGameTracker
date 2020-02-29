@@ -15,6 +15,14 @@ class Player < ApplicationRecord
     player_stats.any? { |player_stat| player_stat.scored_public_objectives.include?(objective) }
   end
 
+  def scored_secret_objectives
+    @scored_secret_objectives ||= player_stats.flat_map(&:scored_secret_objectives)
+  end
+
+  def can_score_another_secret_objective?
+    scored_secret_objectives.count < 3
+  end
+
   def owns_castodian?
     game.custodian_owner == self
   end

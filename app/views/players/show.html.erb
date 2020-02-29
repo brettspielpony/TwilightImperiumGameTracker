@@ -10,7 +10,7 @@
 
 <% if @current_game.active? && (@current_game.current_round.action_phase? || @current_game.current_round.status_phase?) %>
   <section class="mb-s">
-    <h2>Score Objectives</h2>
+    <h2>Score Public Objective</h2>
     <% @current_game.revealed_objectives.each do |objective| %>
       <div class="player-objective <%= @player.scored_objective?(objective) ? "player-objective--scored" : "" %>">
         <%= render objective %>
@@ -22,6 +22,31 @@
           <% end %>
         </div>
       </div>
+    <% end %>
+  </section>
+
+  <section class="mb-s">
+    <% if @player.scored_secret_objectives.any? %>
+      <h2>Scored Secret Objective</h2>
+      <% @player.scored_secret_objectives.each do |objective| %>
+        <%= render objective %>
+      <% end %>
+    <% else %>
+      <p>None yet</p>
+    <% end %>
+
+    <% if @player.can_score_another_secret_objective? %>
+      <datalist id="secret_objective">
+        <%= options_from_collection_for_select available_secret_objectives_for_player(@player), :key, :title %>
+      </datalist>
+
+      <%= form_with url: score_secret_game_player_objectives_path(@current_game, @player), method: :post, class: "form-columns form-slim" do |f| %>
+        <div class="select">
+          <label for="secret_objectives">Secret Objective</label>
+          <%= f.text_field :objective_key, list: "secret_objective", required: true, autocomplete: "off" %>
+        </div>
+        <%= f.submit "Score" %>
+      <% end %>
     <% end %>
   </section>
 <% end %>

@@ -17,7 +17,11 @@ module ApplicationHelper
     I18n.t("strategy_cards").to_a.map { |(key, details)| [key, "&#1010#{details[:initiative_order].to_i + 1}; #{details[:title]}".html_safe] }.sort_by(&:last)
   end
 
-  def available_objectives_for_game(game)
+  def available_secret_objectives_for_player(player)
+    (SecretObjective.all - player.scored_secret_objectives)
+  end
+
+  def available_public_objectives_for_game(game)
     (PublicObjective.all - game.revealed_objectives)
   end
 
