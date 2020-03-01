@@ -7,7 +7,11 @@ class Round < ApplicationRecord
   has_many :player, through: :player_stats
 
   attribute :revealed_objectives, :value_object, default: []
+  # NOTE: The Agenda Card `Classified Document Leaks` allows declaring any SecretObjective to be public
+  validates :revealed_objectives, array_inclusion: { in: (SecretObjective.all + PublicObjective.all) }
+
   attribute :revealed_agenda_cards, :value_object, default: []
+  validates :revealed_agenda_cards, array_inclusion: { in: AgendaCard.all }
 
   before_create :set_started_at
 
