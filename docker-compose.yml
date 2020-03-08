@@ -13,7 +13,7 @@ services:
       - bundle:/opt/bundle
       - node_modules:/opt/app/node_modules
     ports:
-      - "3000:3000"
+      - "${DOCKER_HOST_WEBSERVER_PORT:-3000}:3000"
     environment:
       - DB_USERNAME=postgres
       - DB_PASSWORD=secretsecretsecret
@@ -41,7 +41,7 @@ services:
     volumes:
       - tigametracker_db:/var/lib/postgresql/data
     ports:
-      - "5432:5432"
+      - "${DOCKER_HOST_POSTGRES_PORT:-5432}:5432"
     environment:
        - POSTGRES_PASSWORD=secretsecretsecret
 
