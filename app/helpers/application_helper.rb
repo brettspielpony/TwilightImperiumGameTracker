@@ -1,7 +1,6 @@
 module ApplicationHelper
   def available_factions_for_game(game)
-    selected_factions = game.players.map(&:faction)
-    I18n.t('factions').map { |(key, _details)| [key, faction_name(key)] }.reject { |(key, _faction_name)| selected_factions.include?(key.to_s) }
+    (Faction.all - game.players.map(&:faction))
   end
 
   def available_seats_for_game(game)
@@ -42,10 +41,6 @@ module ApplicationHelper
   end
 
   def image_tag_for_faction(faction)
-    image_tag "#{faction}.png", class: 'faction-icon'
-  end
-
-  def faction_name(faction)
-    I18n.t("factions.#{faction}.title")
+    image_tag "#{faction.key}.png", class: "faction-icon"
   end
 end

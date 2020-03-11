@@ -7,10 +7,18 @@ class ValueObjectType < ActiveRecord::Type::Json
       value.map do |data|
         next data unless data.is_a?(Hash)
 
-        klass = data['class'].constantize
-        klass.find_by(key: data['key'])
+        cast_to_value_object(data)
       end
+    when Hash
+      cast_to_value_object(value)
+    when ValueObject
+      value
     end
+  end
+
+  def cast_to_value_object(data)
+    klass = data['class'].constantize
+    klass.find_by_key(data['key'])
   end
 
   def deserialize(value)

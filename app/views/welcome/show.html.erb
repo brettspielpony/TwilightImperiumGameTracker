@@ -42,10 +42,10 @@
 
   <details>
     <summary>Factions Overview</summary>
-    <% Faction.each do |key, name| %>
+    <% Faction.all.each do |faction| %>
     <div class="faction-title">
-      <%= image_tag_for_faction(key) %>
-      <h4><%= name %></h4>
+      <%= image_tag_for_faction(faction) %>
+      <h4><%= faction.title %></h4>
     </div>
     <% end %>
   </details>

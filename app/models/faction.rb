@@ -1,5 +1,4 @@
-class Faction
-  def self.each
-    I18n.t('factions').each { |key, details| yield(key, details[:title]) } if block_given?
-  end
+class Faction < ValueObject
+  attribute :title, :string
+  attribute :starting_tech, :array_of_strings, default: []
 end

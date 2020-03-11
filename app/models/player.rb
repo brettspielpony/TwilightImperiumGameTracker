@@ -6,8 +6,10 @@ class Player < ApplicationRecord
   has_many :rounds, through: :player_stats
 
   validates :name, presence: true
-  validates :faction, presence: true
   validates :seat_number, presence: true
+
+  attribute :faction, :value_object
+  validates :faction, presence: true
 
   attribute :technologies, :value_object, default: []
   validates :technologies, array_inclusion: { in: Technology.all }
@@ -37,6 +39,6 @@ class Player < ApplicationRecord
   private
 
   def add_starting_technologies
-    self.technologies = I18n.t("factions.#{faction}.starting_tech").compact.map { |key| Technology.find_by(key: key) }
+    self.technologies = faction.starting_tech.map { |key| Technology.find_by_key(key) }
   end
 end
