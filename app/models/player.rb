@@ -36,6 +36,6 @@ class Player < ApplicationRecord
   private
 
   def add_starting_technologies
-    self.technologies = I18n.t("factions.#{faction}.starting_tech").compact.map { |key| Technology.find_by_key(key) }
+    self.technologies = I18n.t("factions.#{faction}.starting_tech", default: []).compact.map { |key| Technology.find_by_key(key) }
   end
 end
