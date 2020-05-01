@@ -13,7 +13,7 @@ class PlayerTest < ActiveSupport::TestCase
   let(:game) { games(:one) }
 
   it "creates a valid player" do
-    _(subject.valid?).must_equal true
+    expect(subject.valid?).must_equal true
   end
 
   describe "Starting Tech" do
@@ -21,7 +21,7 @@ class PlayerTest < ActiveSupport::TestCase
 
     it "copies the correct player.technologies" do
       subject.save!
-      _(subject.technologies).must_equal([
+      expect(subject.technologies).must_equal([
         Technology.find_by_key("magen_defense_grid")
       ])
     end
@@ -31,7 +31,7 @@ class PlayerTest < ActiveSupport::TestCase
 
       it "sets no technologies" do
         subject.save!
-        _(subject.technologies).must_equal([])
+        expect(subject.technologies).must_equal([])
       end
     end
   end
