@@ -10,6 +10,7 @@ class Player < ApplicationRecord
   validates :seat_number, presence: true
 
   attribute :technologies, :value_object, default: []
+  validates :technologies, array_inclusion: { in: Technology.all }
 
   before_create :add_starting_technologies
 
