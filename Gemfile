@@ -42,8 +42,7 @@ end
 group :test do
   gem 'minitest-spec-rails'
   gem 'minitest', '~> 5.13.0' # FIXME https://github.com/rails/rails/issues/38279#issuecomment-609864754
-                              # A solution for the issue is already merged but not yet released. An upcoming
-                              # release might include a fix, so that `minitest` can be unlocked again.
+                              # A solution for the issue is already merged into rails but not yet released.
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
