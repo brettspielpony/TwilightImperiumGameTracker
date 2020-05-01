@@ -1,3 +1,3 @@
 class Faction < ValueObject
-  attribute :starting_tech, :array_of_strings, default: []
+  attribute :starting_tech, :value_object, default: []
 end

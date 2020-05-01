@@ -39,6 +39,6 @@ class Player < ApplicationRecord
   private
 
   def add_starting_technologies
-    self.technologies = faction.starting_tech.map { |key| Technology.find_by_key(key) }
+    self.technologies = faction.starting_tech
   end
 end

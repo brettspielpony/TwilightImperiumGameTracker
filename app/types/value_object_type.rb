@@ -7,7 +7,7 @@ class ValueObjectType < ActiveRecord::Type::Json
       value.map do |data|
         next data unless data.is_a?(Hash)
 
-        cast_to_value_object(data)
+        cast_to_value_object(data.stringify_keys)
       end
     when Hash
       cast_to_value_object(value)
