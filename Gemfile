@@ -20,6 +20,7 @@ gem 'aasm'
 
 group :development, :test do
   gem 'pry-rails'
+  gem 'pry-byebug'
 end
 
 group :development do
@@ -39,6 +40,8 @@ group :development do
 end
 
 group :test do
+  gem 'minitest-spec-rails'
+  gem 'minitest', '~> 5.13.0' # See https://github.com/rails/rails/issues/38279#issuecomment-609864754
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
