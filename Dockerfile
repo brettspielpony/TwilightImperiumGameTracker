@@ -1,4 +1,4 @@
-FROM ruby:2.6.5-stretch
+FROM ruby:2.7.1-buster
 
 ENV APP_HOME=/opt/app \
   RAILS_SERVE_STATIC_FILES=true \
