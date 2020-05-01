@@ -3,10 +3,10 @@ class SecretObjective < ValueObject
   attribute :description, :string
 
   def self.action_phase
-    all.select { |objective| objective.phase == "action" }
+    all.select { |objective| objective.phase == 'action' }
   end
 
   def self.status_phase
-    all.select { |objective| objective.phase == "status" }
+    all.select { |objective| objective.phase == 'status' }
   end
 end

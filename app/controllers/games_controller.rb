@@ -33,7 +33,7 @@ class GamesController < ApplicationController
 
   def start_next_round
     game = find_game
-    objectives_for_round = new_rounds_params[:public_objectives].map { |key| PublicObjective.find_by_key(key) }
+    objectives_for_round = new_rounds_params[:public_objectives].map { |key| PublicObjective.find_by(key: key) }
     speaker = game.players.find(new_rounds_params[:speaker_id])
     game.create_next_round(revealed_objectives: objectives_for_round, speaker: speaker)
 
@@ -50,11 +50,11 @@ class GamesController < ApplicationController
   private
 
   def update_game_params
-    params.require(:game).permit([{player_scores: {}}, :custodian_owner_id])
+    params.require(:game).permit([{ player_scores: {} }, :custodian_owner_id])
   end
 
   def new_rounds_params
-    params.require(:game).permit([{public_objectives: []}, :speaker_id])
+    params.require(:game).permit([{ public_objectives: [] }, :speaker_id])
   end
 
   def find_game

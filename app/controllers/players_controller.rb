@@ -33,6 +33,6 @@ class PlayersController < ApplicationController
   end
 
   def load_current_game
-    @current_game ||= Game.find_by!(uid: params[:game_uid])
+    @current_game ||= Game.find_by!(uid: params[:game_uid]) # rubocop:disable Naming/MemoizedInstanceVariableName
   end
 end

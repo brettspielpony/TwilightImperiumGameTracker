@@ -1,7 +1,7 @@
 module ApplicationHelper
   def available_factions_for_game(game)
     selected_factions = game.players.map(&:faction)
-    I18n.t("factions").map { |(key, details)| [key, faction_name(key)] }.reject { |(key, _faction_name)| selected_factions.include?(key.to_s) }
+    I18n.t('factions').map { |(key, _details)| [key, faction_name(key)] }.reject { |(key, _faction_name)| selected_factions.include?(key.to_s) }
   end
 
   def available_seats_for_game(game)
@@ -30,19 +30,19 @@ module ApplicationHelper
   end
 
   def image_tag_for_technology(technology)
-    image_tag "tech_icon_#{technology.type.to_s}.png", class: "technology-icon"
+    image_tag "tech_icon_#{technology.type}.png", class: 'technology-icon'
   end
 
   def image_tag_for_objective(objective)
     if objective.respond_to?(:stage)
-      image_tag "public_objectives_stage_#{objective.stage}.png", class: "objective-icon"
+      image_tag "public_objectives_stage_#{objective.stage}.png", class: 'objective-icon'
     else
-      image_tag "secret_objectives.png", class: "objective-icon"
+      image_tag 'secret_objectives.png', class: 'objective-icon'
     end
   end
 
   def image_tag_for_faction(faction)
-    image_tag "#{faction}.png", class: "faction-icon"
+    image_tag "#{faction}.png", class: 'faction-icon'
   end
 
   def faction_name(faction)

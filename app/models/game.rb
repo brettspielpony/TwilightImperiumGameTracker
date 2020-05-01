@@ -1,5 +1,5 @@
 class Game < ApplicationRecord
-  PLAYERS_COUNT_RANGE = 3..6
+  PLAYERS_COUNT_RANGE = (3..6).freeze
 
   class PlayerScores
     def self.load(hash)
@@ -23,8 +23,8 @@ class Game < ApplicationRecord
 
   has_many :rounds, dependent: :destroy
   has_many :players, dependent: :destroy
-  belongs_to :winner, class_name: "Player", optional: true
-  belongs_to :custodian_owner, class_name: "Player", optional: true
+  belongs_to :winner, class_name: 'Player', optional: true
+  belongs_to :custodian_owner, class_name: 'Player', optional: true
 
   before_create :set_started_at
 
