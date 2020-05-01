@@ -7,7 +7,7 @@ class ValueObjectType < ActiveRecord::Type::Json
       value.map do |data|
         next data unless data.is_a?(Hash)
 
-        cast_to_value_object(data.stringify_keys)
+        cast_to_value_object(data)
       end
     when Hash
       cast_to_value_object(value)
@@ -17,6 +17,7 @@ class ValueObjectType < ActiveRecord::Type::Json
   end
 
   def cast_to_value_object(data)
+    data = data.stringify_keys
     klass = data['class'].constantize
     klass.find_by_key(data['key'])
   end
