@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class PlayerTest < ActiveSupport::TestCase
-  let(:player) do
+  subject do
     Player.new(
       game: game,
       name: "Matt",
@@ -13,15 +13,15 @@ class PlayerTest < ActiveSupport::TestCase
   let(:game) { games(:one) }
 
   it "creates a valid player" do
-    _(player.valid?).must_equal true
+    _(subject.valid?).must_equal true
   end
 
   describe "Starting Tech" do
     let(:faction_key) { "arborec" }
 
     it "copies the correct player.technologies" do
-      player.save!
-      _(player.technologies).must_equal([
+      subject.save!
+      _(subject.technologies).must_equal([
         Technology.find_by_key("magen_defense_grid")
       ])
     end
@@ -30,8 +30,8 @@ class PlayerTest < ActiveSupport::TestCase
       let(:faction_key) { "winnu" }
 
       it "sets no technologies" do
-        player.save!
-        _(player.technologies).must_equal([])
+        subject.save!
+        _(subject.technologies).must_equal([])
       end
     end
   end
