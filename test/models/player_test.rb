@@ -20,7 +20,6 @@ class PlayerTest < ActiveSupport::TestCase
     let(:faction_key) { "arborec" }
 
     it "copies the correct player.technologies" do
-      subject.save!
       expect(subject.technologies).must_equal([
         Technology.find_by_key("magen_defense_grid")
       ])
@@ -30,7 +29,6 @@ class PlayerTest < ActiveSupport::TestCase
       let(:faction_key) { "winnu" }
 
       it "sets no technologies" do
-        subject.save!
         expect(subject.technologies).must_equal([])
       end
     end

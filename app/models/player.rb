@@ -14,7 +14,11 @@ class Player < ApplicationRecord
   attribute :technologies, :value_object, default: []
   validates :technologies, array_inclusion: { in: Technology.all }
 
-  before_create :add_starting_technologies
+  def faction=(faction)
+    super
+
+    self.technologies = faction.starting_tech
+  end
 
   def scored_objective?(objective)
     player_stats.any? { |player_stat| player_stat.scored_public_objectives.include?(objective) }
@@ -34,11 +38,5 @@ class Player < ApplicationRecord
 
   def currently_speaker?
     game.current_round.speaker == self
-  end
-
-  private
-
-  def add_starting_technologies
-    self.technologies = faction.starting_tech
   end
 end
