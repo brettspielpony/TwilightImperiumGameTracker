@@ -2,7 +2,7 @@ class ObjectivesController < ApplicationController
   before_action :load_current_game
 
   def score_public
-    objective = PublicObjective.find_by_key(params[:objective_key])
+    objective = PublicObjective.find_by(key: params[:objective_key])
 
     player_stats = find_player_stats
     player_stats.scored_public_objectives << objective
@@ -12,7 +12,7 @@ class ObjectivesController < ApplicationController
   end
 
   def score_secret
-    objective = SecretObjective.find_by_key(params[:objective_key])
+    objective = SecretObjective.find_by(key: params[:objective_key])
 
     player_stats = find_player_stats
     player_stats.scored_secret_objectives << objective
@@ -28,7 +28,6 @@ class ObjectivesController < ApplicationController
   end
 
   def load_current_game
-    @current_game ||= Game.find_by!(uid: params[:game_uid])
+    @current_game ||= Game.find_by!(uid: params[:game_uid]) # rubocop:disable Naming/MemoizedInstanceVariableName
   end
 end
-

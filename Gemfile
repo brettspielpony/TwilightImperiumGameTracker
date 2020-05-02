@@ -1,10 +1,9 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.5'
+ruby '2.7.1'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
+gem 'rails'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -20,13 +19,23 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'aasm'
 
 group :development, :test do
-  gem "pry-rails"
+  gem 'pry-rails'
 end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'web-console', '>= 3.3.0'
+
+  gem 'rubocop', require: false
+  gem 'rubocop-gitlab-security', require: false
+  gem 'rubocop-minitest', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
+  # NOTE Keep parser version in sync with Ruby version.
+  #      This is not a MUST but will reduce warnings and
+  #      other issues, mostly with Rubocop.
+  gem 'parser', '~> 2.7.1'
 end
 
 group :test do

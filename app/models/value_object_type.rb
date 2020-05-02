@@ -8,7 +8,7 @@ class ValueObjectType < ActiveRecord::Type::Json
         next data unless data.is_a?(Hash)
 
         klass = data['class'].constantize
-        klass.find_by_key(data['key'])
+        klass.find_by(key: data['key'])
       end
     end
   end

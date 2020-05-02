@@ -1,47 +1,44 @@
 class RoundsController < ApplicationController
   before_action :load_current_game
+  before_action :find_round
 
   def pick_strategy_cards
-    round = find_round
-    players_and_picks = params[:round][:strategy_card_picks].permit!.to_h.each do |(player_id, strategy_card_keys)|
-      strategy_cards = strategy_card_keys.map { |key| StrategyCard.find_by_key(key) }
-      round.player_stats.create!(player: @current_game.players.find(player_id), picked_strategy_cards: strategy_cards)
+    round_params[:strategy_card_picks].each do |(player_id, strategy_card_keys)|
+      @round.player_stats.create!(
+        player: @current_game.players.find(player_id),
+        picked_strategy_cards: strategy_card_keys.map { |key| StrategyCard.find_by(key: key) }
+      )
     end
-    round.start_action_phase!
+    @round.start_action_phase!
 
     redirect_to @current_game
   end
 
   def finish_action_phase
-    round = find_round
-    round.start_status_phase!
+    @round.start_status_phase!
 
     redirect_to @current_game
   end
 
   def finish_status_phase
-    round = find_round
-    if round.may_start_agenda_phase?
-      round.start_agenda_phase!
+    if @round.may_start_agenda_phase?
+      @round.start_agenda_phase!
     else
-      round.finish!
+      @round.finish!
     end
 
     redirect_to @current_game
   end
 
   def pick_agenda_cards
-    round = find_round
-    agenda_cards = params[:round][:agenda_cards].map { |key| AgendaCard.find_by_key(key) }
-    round.revealed_agenda_cards = agenda_cards
-    round.save!
+    @round.revealed_agenda_cards = round_params[:agenda_cards].map { |key| AgendaCard.find_by(key: key) }
+    @round.save!
 
     redirect_to @current_game
   end
 
   def finish_agenda_phase
-    round = find_round
-    round.finish!
+    @round.finish!
 
     redirect_to @current_game
   end
@@ -49,14 +46,18 @@ class RoundsController < ApplicationController
   private
 
   def find_round
-    @current_game.rounds.find(params[:id])
+    @round ||= @current_game.rounds.find(params[:id]) # rubocop:disable Naming/MemoizedInstanceVariableName
   end
 
   def new_player_params
     params.require(:player).permit(:name, :faction).merge(game: @current_game)
   end
 
+  def round_params
+    params.require(:round).permit(strategy_card_picks: {}, agenda_cards: [])
+  end
+
   def load_current_game
-    @current_game ||= Game.find_by!(uid: params[:game_uid])
+    @current_game ||= Game.find_by!(uid: params[:game_uid]) # rubocop:disable Naming/MemoizedInstanceVariableName
   end
 end

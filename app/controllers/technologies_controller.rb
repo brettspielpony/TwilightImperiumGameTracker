@@ -1,12 +1,12 @@
 class TechnologiesController < ApplicationController
   def show
-    @technology = Technology.find_by_key(params[:key])
+    @technology = Technology.find_by(key: params[:key])
   end
 
   def create
     current_game = load_current_game
     player = current_game.players.find(params[:player_id])
-    player.technologies << Technology.find_by_key(params.require(:technology).required(:key))
+    player.technologies << Technology.find_by(key: params.require(:technology).required(:key))
     player.save
     redirect_to game_player_path(current_game, player)
   end

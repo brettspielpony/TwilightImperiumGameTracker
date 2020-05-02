@@ -1,0 +1,32 @@
+require:
+  - rubocop-rails
+  - rubocop-minitest
+  - rubocop-gitlab-security
+  - rubocop-performance
+
+AllCops:
+  NewCops: enable
+
+Layout/LineLength:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Rails/NotNullColumn:
+  Enabled: false
+
+Rails/BulkChangeTable:
+  Enabled: false
+
+Rails/ReversibleMigration:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
