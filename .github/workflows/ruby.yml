@@ -1,4 +1,4 @@
-name: Ruby
+name: Rubocop & Tests
 
 on:
   push:
@@ -11,13 +11,39 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    services:
+      db:
+        image: postgres:11
+        ports:
+        - 5432:5432
+        # Set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
     steps:
     - uses: actions/checkout@v2
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
+    - uses: actions/cache@v1
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-gems-
     - name: Install dependencies
-      run: bundle install
+      run: |
+        bundle config path vendor/bundle
+        bundle install --jobs 4 --retry 3
     - name: Run Rubocop
       run: bundle exec rails rubocop
-    - name: Run tests
-      run: bundle exec rails test
+    - name: Setup DB and run tests
+      env:
+        PGHOST: localhost
+        PGUSER: postgres
+        RAILS_ENV: test
+      run: |
+        bin/rails db:setup
+        bin/rails test
