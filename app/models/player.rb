@@ -6,13 +6,19 @@ class Player < ApplicationRecord
   has_many :rounds, through: :player_stats
 
   validates :name, presence: true
-  validates :faction, presence: true
   validates :seat_number, presence: true
+
+  attribute :faction, :value_object
+  validates :faction, presence: true
 
   attribute :technologies, :value_object, default: []
   validates :technologies, array_inclusion: { in: Technology.all }
 
-  before_create :add_starting_technologies
+  def faction=(faction)
+    super
+
+    self.technologies = faction.starting_tech
+  end
 
   def scored_objective?(objective)
     player_stats.any? { |player_stat| player_stat.scored_public_objectives.include?(objective) }
@@ -32,11 +38,5 @@ class Player < ApplicationRecord
 
   def currently_speaker?
     game.current_round.speaker == self
-  end
-
-  private
-
-  def add_starting_technologies
-    self.technologies = I18n.t("factions.#{faction}.starting_tech").compact.map { |key| Technology.find_by(key: key) }
   end
 end

@@ -4,7 +4,7 @@
   <%= f.label :name %>
   <%= f.text_field :name %>
   <%= f.label :faction %>
-  <%= f.collection_select :faction, available_factions_for_game(@current_game), :first, :last %>
+  <%= f.collection_select :faction, available_factions_for_game(@current_game), :key, :title %>
   <%= f.label :seat_number %>
   <%= f.select :seat_number, available_seats_for_game(@current_game) %>
 

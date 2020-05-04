@@ -18,78 +18,100 @@ en:
     arborec:
       title: The Arborec
       starting_tech:
-        - magen_defense_grid
+        - key: magen_defense_grid
+          class: Technology
     barony:
       title: The Barony of Letnev
       starting_tech:
-        - antimass_deflectors
-        - plasma_scoring
+        - key: antimass_deflectors
+          class: Technology
+        - key: plasma_scoring
+          class: Technology
     creuss:
       title: The Ghosts of Creuss
       starting_tech:
-        - gravity_drive
+        - key: gravity_drive
+          class: Technology
     hacan:
       title: The Emirates of Hacan
       starting_tech:
-        - antimass_deflectors
-        - sarween_tools
+        - key: antimass_deflectors
+          class: Technology
+        - key: sarween_tools
+          class: Technology
     jolnar:
       title: The Universities of Jol-Nar
       starting_tech:
-        - neural_motivator
-        - antimass_deflectors
-        - sarween_tools
-        - plasma_scoring
+        - key: neural_motivator
+          class: Technology
+        - key: antimass_deflectors
+          class: Technology
+        - key: sarween_tools
+          class: Technology
+        - key: plasma_scoring
+          class: Technology
     l1z1x:
       title: The L1Z1X Mindnet
       starting_tech:
-        - neural_motivator
-        - plasma_scoring
+        - key: neural_motivator
+          class: Technology
+        - key: plasma_scoring
+          class: Technology
     mentak:
       title: The Mentak Coalition
       starting_tech:
-        - sarween_tools
-        - plasma_scoring
+        - key: sarween_tools
+          class: Technology
+        - key: plasma_scoring
+          class: Technology
     muaat:
       title: The Embers of Muaat
       starting_tech:
-        - plasma_scoring
+        - key: plasma_scoring
+          class: Technology
     naalu:
       title: The Naalu Collective
       starting_tech:
-        - neural_motivator
-        - sarween_tools
+        - key: neural_motivator
+          class: Technology
+        - key: sarween_tools
+          class: Technology
     nekro:
       title: The Nekro Virus
       starting_tech:
-        - dacxive_animators
+        - key: dacxive_animators
+          class: Technology
     sardakk:
       title: The Sardakk N'orr
-      starting_tech:
     saar:
       title: The Clan of Saar
       starting_tech:
-        - antimass_deflectors
+        - key: antimass_deflectors
+          class: Technology
     sol:
       title: The Federation of Sol
       starting_tech:
-        - antimass_deflectors
-        - neural_motivator
+        - key: antimass_deflectors
+          class: Technology
+        - key: neural_motivator
+          class: Technology
     winnu:
       title: The Winnu
-      starting_tech:
     xxcha:
       title: The Xxcha Kingdom
       starting_tech:
-        - graviton_laser_system
+        - key: graviton_laser_system
+          class: Technology
     yin:
       title: The Yin Brotherhood
       starting_tech:
-        - sarween_tools
+        - key: sarween_tools
+          class: Technology
     yssaril:
       title: The Yssaril Tribes
       starting_tech:
-        - neural_motivator
+        - key: neural_motivator
+          class: Technology
   strategy_cards:
     leadership:
       initiative_order: 1

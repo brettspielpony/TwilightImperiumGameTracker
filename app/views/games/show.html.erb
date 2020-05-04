@@ -8,7 +8,7 @@
       <% @game.players.each do |player| %>
         <div>
           [<%= player.seat_number %>]
-          <%= link_to player.name, game_player_path(@game, player) %> (<%= faction_name(player.faction) %>)
+          <%= link_to player.name, game_player_path(@game, player) %> (<%= player.faction.title %>)
           <% if @game.preparing? %>
             [<%= link_to "remove", game_player_path(@game, player), method: :delete, data: { confirm: "Sure?" } %>]
           <% end %>

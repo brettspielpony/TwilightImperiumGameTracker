@@ -15,6 +15,7 @@ services:
     ports:
       - "${DOCKER_HOST_WEBSERVER_PORT:-3000}:3000"
     environment:
+      - RUBYOPT=-W:no-deprecated -W:no-experimental # https://dev.to/andrewmcodes/hiding-ruby-2-7-deprecation-warnings-in-rails-6-2mil
       - DB_USERNAME=postgres
       - DB_PASSWORD=secretsecretsecret
       - DB_HOST=db

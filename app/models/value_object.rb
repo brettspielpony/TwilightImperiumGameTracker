@@ -15,7 +15,8 @@ class ValueObject
     end
   end
 
-  def self.find_by_key(key)
+  # NB: This keeps Rubocop happy since it mimics ActiveRecord interface
+  def self.find_by(key:)
     all.detect { |obj| obj.key.to_s == key.to_s }
   end
 
