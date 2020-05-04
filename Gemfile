@@ -19,8 +19,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'aasm'
 
 group :development, :test do
-  gem 'pry-rails'
   gem 'pry-byebug'
+  gem 'pry-rails'
 end
 
 group :development do
@@ -40,10 +40,11 @@ group :development do
 end
 
 group :test do
+  # FIXME: https://github.com/rails/rails/issues/38279#issuecomment-609864754
+  #        A solution for the issue is already merged into rails but not yet released.
+  #        Adds support for Capybara system testing and selenium driver
+  gem 'minitest', '~> 5.13.0'
   gem 'minitest-spec-rails'
-  gem 'minitest', '~> 5.13.0' # FIXME https://github.com/rails/rails/issues/38279#issuecomment-609864754
-                              # A solution for the issue is already merged into rails but not yet released.
-  # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
