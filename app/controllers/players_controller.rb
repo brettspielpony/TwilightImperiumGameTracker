@@ -34,7 +34,7 @@ class PlayersController < ApplicationController
 
   def new_player_params
     player_params.merge(
-      faction: Faction.find_by_key(player_params[:faction]),
+      faction: Faction.find_by(key: player_params[:faction]),
       game: @current_game
     )
   end

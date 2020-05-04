@@ -41,6 +41,6 @@ module ApplicationHelper
   end
 
   def image_tag_for_faction(faction)
-    image_tag "#{faction.key}.png", class: "faction-icon"
+    image_tag "#{faction.key}.png", class: 'faction-icon'
   end
 end

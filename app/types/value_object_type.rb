@@ -19,7 +19,7 @@ class ValueObjectType < ActiveRecord::Type::Json
   def cast_to_value_object(data)
     data = data.stringify_keys
     klass = data['class'].constantize
-    klass.find_by_key(data['key'])
+    klass.find_by(key: data['key'])
   end
 
   def deserialize(value)
