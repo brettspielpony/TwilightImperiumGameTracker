@@ -1,0 +1,9 @@
+<%- uuid = SecureRandom.uuid %>
+<datalist id="<%= uuid %>">
+  <%= options_from_collection_for_select objectives, :key, :title %>
+</datalist>
+
+<div class="select">
+  <label for="public_objective_">Objective</label>
+  <%= form.text_field :public_objectives, name: "game[public_objectives][]", list: uuid, required: true, autocomplete: "off" %>
+</div>

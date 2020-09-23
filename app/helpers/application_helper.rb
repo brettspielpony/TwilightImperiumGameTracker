@@ -25,6 +25,10 @@ module ApplicationHelper
     (PublicObjective.all - game.revealed_objectives)
   end
 
+  def available_additional_public_objectives_for_agenda_phase(game)
+    available_public_objectives_for_game(game) + game.players.flat_map(&:scored_secret_objectives)
+  end
+
   def available_agenda_cards_for_game(game)
     (AgendaCard.all - game.revealed_agenda_cards)
   end
